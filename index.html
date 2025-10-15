@@ -342,13 +342,17 @@
     .feature-card:hover::before {
       opacity: 1;
     }
-
     .feature-icon {
-      display: inline-flex;
-      padding: 1rem;
-      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
       margin-bottom: 1rem;
+      margin-left: 100px;
       transition: var(--transition);
+      flex-shrink: 0;
     }
 
     .feature-icon.primary {
@@ -486,9 +490,10 @@
       padding-left: 1.5rem;
       border-left: 4px solid hsla(var(--primary), 0.3);
       line-height: 1.7;
+      text-align: center;
     }
 
-    /* Services */
+    /* Services Section */
     .services-section {
       padding: 8rem 1.5rem;
       background: linear-gradient(
@@ -516,102 +521,80 @@
       margin: 0 auto;
     }
 
+    /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
+    /* Service Card */
     .service-card {
-      position: relative;
-      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
       border-radius: 1rem;
       overflow: hidden;
       text-decoration: none;
-      animation: fade-in-up 0.6s ease-out;
+      background-color: #fff; /* fallback for text area */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1;
     }
 
-    .service-gradient {
-      position: absolute;
-      inset: 0;
-      transition: var(--transition);
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .gradient-1 {
-      background: linear-gradient(
-        135deg,
-        hsla(var(--primary), 0.2),
-        hsla(var(--secondary), 0.2),
-        hsla(var(--accent), 0.2)
-      );
+    /* Image Wrapper */
+    .service-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      z-index: 2;
     }
 
-    .gradient-2 {
-      background: linear-gradient(
-        135deg,
-        hsla(var(--secondary), 0.2),
-        hsla(var(--accent), 0.2),
-        hsla(var(--primary), 0.2)
-      );
+    .service-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 2;
     }
 
-    .gradient-3 {
-      background: linear-gradient(
-        135deg,
-        hsla(var(--accent), 0.2),
-        hsla(var(--primary), 0.2),
-        hsla(var(--secondary), 0.2)
-      );
-    }
-
-    .service-card:hover .service-gradient {
-      transform: scale(1.1);
-    }
-
-    .service-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: hsl(var(--foreground) / 0.1);
-      transition: var(--transition);
-    }
-
-    .service-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        hsla(var(--background), 0.95),
-        hsla(var(--background), 0.5),
-        transparent
-      );
-      opacity: 0.9;
-      transition: var(--transition);
-    }
-
+    /* Text Content Section */
     .service-content {
-      position: absolute;
-      inset: 0;
+      background-color: white; /* solid color behind text */
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
+      gap: 0.5rem;
+      z-index: 3;
     }
 
     .service-content h3 {
       font-size: 1.5rem;
-      margin-bottom: 0.75rem;
+      margin: 0;
+      color: #7a9c8d;
     }
 
     .service-link {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: hsl(var(--primary));
       font-size: 0.875rem;
       font-weight: 600;
-      transition: var(--transition);
+      color: #8b84b1;
+      transition: color 0.3s ease;
+    }
+
+    .service-link:hover {
+      color: hsl(var(--accent));
+    }
+
+    /* Optional: adjust icon if needed */
+    .service-icon {
+      display: none;
     }
 
     /* Instagram */
@@ -693,14 +676,6 @@
 
     .footer-links a:hover {
       color: hsl(var(--primary));
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid hsl(var(--border));
-      color: hsl(var(--muted-foreground));
-      font-size: 0.875rem;
     }
 
     /* Animations */
@@ -791,14 +766,36 @@
       </div>
       <div class="hero-content fade-in-up">
         <div class="hero-badge">
-          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="none"
-              stroke="#b58b61"
+          <svg
+            fill="#8d97a4"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+            stroke="#8d97a4"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M38.849,11.8737c3.3879,2.7334,7.334,7.2956-.2888,11.492s-11.4342-2.9452-10.183-6.8721a4.2691,4.2691,0,0,0-1.7421,3.0029"
-            />
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M27.42,10.57A1.66,1.66,0,0,0,26.17,10h0a1.66,1.66,0,0,0-1.25.56c-11.76,13.39-5,24,0,29.07a1.66,1.66,0,0,0,1.19.49h0a1.77,1.77,0,0,0,1.24-.54C32.3,34.48,38.83,23.93,27.42,10.57Z"
+              ></path>
+              <path
+                d="M15.66,28.3C13,26.79,9.37,25.92,4.56,26.24a1.27,1.27,0,0,0-1,.53h0a1.34,1.34,0,0,0-.24,1.08c3,14,13,14.75,18.77,13.94a1.35,1.35,0,0,0,.64-.3A23.14,23.14,0,0,1,15.66,28.3Z"
+              ></path>
+              <path
+                d="M36.34,28.3c2.69-1.51,6.29-2.38,11.1-2.06a1.27,1.27,0,0,1,1,.53h0a1.34,1.34,0,0,1,.24,1.08c-3,14-13,14.75-18.77,13.94a1.35,1.35,0,0,1-.64-.3A23.14,23.14,0,0,0,36.34,28.3Z"
+              ></path>
+              <path
+                d="M15.38,25c.32-4.56,1.2-6.62,1.61-7.35a22.71,22.71,0,0,0-6.43-3.46,1.28,1.28,0,0,0-1.08.09h0a1.34,1.34,0,0,0-.64.88,21.65,21.65,0,0,0-.25,8.41A22.93,22.93,0,0,1,15.38,25Z"
+              ></path>
+              <path
+                d="M43.31,15.13a1.29,1.29,0,0,0-.64-.88h0a1.28,1.28,0,0,0-1.08-.09,22.79,22.79,0,0,0-6.42,3.46c.4.73,1.29,2.79,1.6,7.35a22.93,22.93,0,0,1,6.8-1.43A21.27,21.27,0,0,0,43.31,15.13Z"
+              ></path>
+            </g>
           </svg>
           <span>Holistic Wellness & Sacred Healing</span>
         </div>
@@ -833,16 +830,47 @@
           <div class="feature-card">
             <div class="feature-icon primary">
               <svg
-                width="32"
-                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
-                />
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    opacity="0.8"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z"
+                    fill="#ad8469"
+                  ></path>
+                  <g opacity="0.5">
+                    <path
+                      d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10583 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10583 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L18.1871 6.87359C17.8942 7.16648 17.4193 7.16648 17.1264 6.87359C16.8335 6.5807 16.8335 6.10583 17.1264 5.81293L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M6.87338 17.1266C7.16627 17.4195 7.16627 17.8944 6.87338 18.1873L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L5.81272 17.1266C6.10561 16.8337 6.58048 16.8337 6.87338 17.1266Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M17.1266 17.1266C17.4195 16.8337 17.8944 16.8337 18.1873 17.1266L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L17.1266 18.1873C16.8337 17.8944 16.8337 17.4195 17.1266 17.1266Z"
+                      fill="#ad8469"
+                    ></path>
+                  </g>
+                  <path
+                    d="M7 11.0595C7 13.6018 9.00971 14.9566 10.4809 16.1692C11 16.5971 11.5 17 12 17C12.5 17 13 16.5971 13.5191 16.1692C14.9903 14.9566 17 13.6018 17 11.0595C17 8.51718 14.2499 6.71421 12 9.15837C9.75008 6.71421 7 8.51718 7 11.0595Z"
+                    fill="#ad8469"
+                  ></path>
+                </g>
               </svg>
             </div>
             <h3>Holistic Healing</h3>
@@ -852,16 +880,63 @@
           <div class="feature-card">
             <div class="feature-icon secondary">
               <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                fill="#b8a693"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 45.22 45.22"
+                xml:space="preserve"
+                stroke="#b8a693"
               >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                />
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <circle cx="22.611" cy="5.024" r="3.552"></circle>
+                      <path
+                        d="M26.436,12.675c-0.399-2-2.289-3.373-4.339-3.099c-1.696,0.225-2.99,1.51-3.309,3.099c1.07-0.792,2.394-1.262,3.824-1.262 S25.364,11.884,26.436,12.675z"
+                      ></path>
+                      <path
+                        d="M35.291,29.401c-0.814-0.717-2.057-0.637-2.772,0.178l-2.8,3.18c-0.717,0.814-0.637,2.057,0.178,2.773 c0.373,0.328,0.836,0.49,1.297,0.49c0.545,0,1.087-0.227,1.476-0.668l2.798-3.181C36.186,31.36,36.106,30.118,35.291,29.401z"
+                      ></path>
+                      <path
+                        d="M32.669,10.911c-0.718-0.814-1.959-0.894-2.772-0.177c-0.814,0.717-0.895,1.959-0.178,2.773l2.8,3.181 c0.389,0.441,0.931,0.667,1.477,0.667c0.461,0,0.923-0.161,1.297-0.489c0.814-0.717,0.895-1.959,0.177-2.773L32.669,10.911z"
+                      ></path>
+                      <g>
+                        <path
+                          d="M22.629,23.517c-0.006,0-0.031,0-0.037,0c-1.251,0-2.444,0.567-3.278,1.502c-0.834,0.934-1.231,2.194-1.09,3.438 l2.019,13.048c0.138,1.229,1.144,2.244,2.368,2.244c1.226,0,2.229-1.007,2.37-2.238l2.017-13.056 c0.142-1.243-0.256-2.504-1.09-3.438C25.072,24.085,23.881,23.517,22.629,23.517z"
+                        ></path>
+                        <circle cx="22.61" cy="18.078" r="4.33"></circle>
+                      </g>
+                      <g>
+                        <path
+                          d="M41.219,17.509c-0.005,0-0.027,0-0.033,0c-1.14,0-2.226,0.517-2.984,1.367c-0.76,0.85-1.121,1.998-0.993,3.131 l1.837,11.878c0.126,1.12,1.042,2.043,2.156,2.043c1.115,0,2.03-0.917,2.157-2.036l1.836-11.887 c0.128-1.132-0.233-2.279-0.992-3.129S42.358,17.509,41.219,17.509z"
+                        ></path>
+                        <circle cx="41.202" cy="12.557" r="3.942"></circle>
+                      </g>
+                    </g>
+                    <g>
+                      <path
+                        d="M9.93,29.401c0.815-0.717,2.057-0.637,2.773,0.178l2.799,3.18c0.717,0.814,0.637,2.057-0.177,2.773 c-0.373,0.328-0.836,0.49-1.297,0.49c-0.545,0-1.087-0.227-1.476-0.668l-2.798-3.181C9.036,31.36,9.114,30.118,9.93,29.401z"
+                      ></path>
+                      <path
+                        d="M12.55,10.911c0.718-0.814,1.959-0.894,2.773-0.177c0.814,0.717,0.894,1.959,0.177,2.773l-2.799,3.181 c-0.389,0.441-0.931,0.667-1.477,0.667c-0.461,0-0.923-0.161-1.297-0.489c-0.814-0.717-0.894-1.959-0.177-2.773L12.55,10.911z"
+                      ></path>
+                      <g>
+                        <path
+                          d="M4.001,17.509c0.005,0,0.028,0,0.034,0c1.139,0,2.225,0.517,2.984,1.367c0.76,0.85,1.121,1.998,0.993,3.131L6.174,33.885 c-0.126,1.12-1.042,2.043-2.156,2.043c-1.115,0-2.03-0.917-2.157-2.036L0.025,22.005c-0.128-1.132,0.233-2.279,0.992-3.129 C1.776,18.026,2.861,17.509,4.001,17.509z"
+                        ></path>
+                        <circle cx="4.019" cy="12.557" r="3.942"></circle>
+                      </g>
+                    </g>
+                  </g>
+                </g>
               </svg>
             </div>
             <h3>Sacred Space</h3>
@@ -871,14 +946,25 @@
           <div class="feature-card">
             <div class="feature-icon accent">
               <svg
-                width="32"
-                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M12 2v20M2 12h20M6 6l12 12M6 18L18 6" />
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M4 21V18.5C4 15.4624 6.46243 13 9.5 13H13.5M8 21V18M16 6.5C16 8.70914 14.2091 10.5 12 10.5C9.79086 10.5 8 8.70914 8 6.5C8 4.29086 9.79086 2.5 12 2.5C14.2091 2.5 16 4.29086 16 6.5ZM17.5 12.9998C17.0439 12.3927 16.3178 12 15.5 12C14.1193 12 13 13.1193 13 14.5C13 15.1195 13.2253 15.6864 13.5985 16.1231L17.5 21L21.4015 16.1231C21.7747 15.6864 22 15.1195 22 14.5C22 13.1193 20.8807 12 19.5 12C18.6822 12 17.9561 12.3927 17.5 12.9998Z"
+                    stroke="#bca176"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.4"
+                  ></path>
+                </g>
               </svg>
             </div>
             <h3>Expert Care</h3>
@@ -900,9 +986,11 @@
         </blockquote>
       </div>
     </section>
-    <!-- Services Grid -->
+
+    <!-- Services Section -->
     <section class="services-section">
       <div class="container">
+        <!-- Section Header -->
         <div class="section-header">
           <h2 class="section-title">Our Services</h2>
           <p class="section-subtitle">
@@ -910,24 +998,19 @@
             well-being
           </p>
         </div>
+
+        <!-- Services Grid -->
         <div class="services-grid">
+          <!-- Massage Therapies -->
           <a href="#massage" class="service-card">
-            <div class="service-gradient gradient-1"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+            <div class="service-image-wrapper">
+              <img
+                src="images/massage.jpeg"
+                alt="Massage Therapies"
+                class="service-image"
               />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+            </div>
+            <div class="service-content solid-background">
               <h3>Massage Therapies</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -944,23 +1027,17 @@
               </div>
             </div>
           </a>
-          <a href="#holistic" class="service-card">
-            <div class="service-gradient gradient-2"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+
+          <!-- Holistic Healing -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/healing.JPG"
+                alt="Holistic Healing"
+                class="service-image"
               />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+            </div>
+            <div class="service-content solid-background">
               <h3>Holistic Healing</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -977,21 +1054,17 @@
               </div>
             </div>
           </a>
-          <a href="#yoga" class="service-card">
-            <div class="service-gradient gradient-3"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M12 2v20M2 12h20M6 6l12 12M6 18L18 6" />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+
+          <!-- Yoga & Meditation -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/yoga.png"
+                alt="Holistic Healing"
+                class="service-image"
+              />
+            </div>
+            <div class="service-content solid-background">
               <h3>Yoga & Meditation</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1008,21 +1081,17 @@
               </div>
             </div>
           </a>
-          <a href="#pregnancy" class="service-card">
-            <div class="service-gradient gradient-1"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M9 12h6M12 9v6" />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+
+          <!-- Pregnancy Care -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/pregnancy.JPG"
+                alt="Holistic Healing"
+                class="service-image"
+              />
+            </div>
+            <div class="service-content solid-background">
               <h3>Pregnancy Care</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1039,23 +1108,16 @@
               </div>
             </div>
           </a>
-          <a href="#tea" class="service-card">
-            <div class="service-gradient gradient-2"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+          <!-- Tea & Tisanes -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/tea.png"
+                alt="Holistic Healing"
+                class="service-image"
               />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+            </div>
+            <div class="service-content solid-background">
               <h3>Tea & Tisanes</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1072,23 +1134,17 @@
               </div>
             </div>
           </a>
-          <a href="#art" class="service-card">
-            <div class="service-gradient gradient-3"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+
+          <!-- Art & Creativity -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/art.jpeg"
+                alt="Holistic Healing"
+                class="service-image"
               />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+            </div>
+            <div class="service-content solid-background">
               <h3>Art & Creativity</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1105,23 +1161,17 @@
               </div>
             </div>
           </a>
-          <a href="#beauty" class="service-card">
-            <div class="service-gradient gradient-1"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+
+          <!-- Beauty Treatments -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/facial.png"
+                alt="Holistic Healing"
+                class="service-image"
               />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+            </div>
+            <div class="service-content solid-background">
               <h3>Beauty Treatments</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1138,21 +1188,17 @@
               </div>
             </div>
           </a>
-          <a href="#shop" class="service-card">
-            <div class="service-gradient gradient-2"></div>
-            <svg
-              class="service-icon"
-              width="96"
-              height="96"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-            </svg>
-            <div class="service-overlay"></div>
-            <div class="service-content">
+
+          <!-- Nepali Products -->
+          <a href="#massage" class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/nepprod.png"
+                alt="Holistic Healing"
+                class="service-image"
+              />
+            </div>
+            <div class="service-content solid-background">
               <h3>Nepali Products</h3>
               <div class="service-link">
                 <span>View More</span>
@@ -1172,6 +1218,7 @@
         </div>
       </div>
     </section>
+
     <!-- Instagram Feed -->
     <section class="instagram-section">
       <div class="container text-center">
@@ -1256,7 +1303,8 @@
         <div class="footer-content">
           <div class="footer-brand">
             <h3>Soma Wellness Studio</h3>
-            <p>Transform your mind, body & spirit</p>
+            <strong><p>Transform your mind, body & spirit</p></strong>
+            <p>Pepsicola, New Townplanning</p>
           </div>
           <div class="footer-links">
             <div>
@@ -1283,9 +1331,6 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 Soma Wellness Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>
