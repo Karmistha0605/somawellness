@@ -17,30 +17,23 @@
   </head>
   <style>
     :root {
-      /* Colors (HSL) - Warm Earth Tones */
       --primary: 23 35% 55%;
       --primary-foreground: 0 0% 100%;
       --secondary: 30 25% 65%;
       --secondary-foreground: 0 0% 100%;
       --accent: 35 40% 60%;
       --accent-foreground: 0 0% 100%;
-
       --background: 30 20% 94%;
       --foreground: 25 15% 25%;
       --muted: 30 15% 90%;
       --muted-foreground: 25 10% 50%;
       --border: 30 15% 85%;
       --card: 0 0% 100%;
-
-      /* Spacing */
       --container-padding: 1.5rem;
       --max-width: 1400px;
-
-      /* Transitions */
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -69,7 +62,6 @@
       text-align: center;
     }
 
-    /* Typography */
     h1,
     h2,
     h3,
@@ -113,10 +105,6 @@
       align-items: center;
     }
 
-    .logo:hover {
-      opacity: 1;
-    }
-
     .logo-img {
       height: 40px;
       width: auto;
@@ -127,12 +115,6 @@
     .logo-img:hover {
       opacity: 0.8;
       transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .logo-img {
-        height: 32px;
-      }
     }
 
     .mobile-menu-btn {
@@ -193,7 +175,7 @@
       width: 100%;
     }
 
-    /* Hero Container */
+    /* Hero Section */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -203,10 +185,9 @@
       overflow: hidden;
       background: hsl(var(--background));
       padding-top: 5rem;
-      z-index: 0; /* creates stacking context */
+      z-index: 1;
     }
 
-    /* Hero background */
     .hero-background {
       position: absolute;
       inset: 0;
@@ -214,7 +195,15 @@
       z-index: 0;
     }
 
-    /* Optional overlay for subtle depth */
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     .gradient-overlay {
       position: absolute;
       inset: 0;
@@ -223,10 +212,9 @@
         rgba(255, 255, 255, 0.3),
         transparent 70%
       );
-      z-index: 1;
+      z-index: 2;
     }
 
-    /* Hero content on top */
     .hero-content {
       position: relative;
       z-index: 5;
@@ -242,7 +230,6 @@
       background: rgba(255, 255, 255, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
       transition: all 0.3s ease;
       margin-top: 1.5rem;
@@ -254,14 +241,12 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
 
-    /* Icon styling */
     .hero-badge svg {
       width: 1.25rem;
       height: 1.25rem;
       color: #b58b61;
     }
 
-    /* Gradient text */
     .hero-badge span {
       background: linear-gradient(90deg, #b58b61 0%, #7a9c8d 50%, #8b84b1 100%);
       -webkit-background-clip: text;
@@ -281,7 +266,6 @@
     .hero-title-line {
       display: block;
       margin-bottom: 1rem;
-      color: hsl(var(--foreground));
     }
 
     .hero-title-gradient {
@@ -331,7 +315,6 @@
     .feature-card:nth-child(2) {
       animation-delay: 0.1s;
     }
-
     .feature-card:nth-child(3) {
       animation-delay: 0.2s;
     }
@@ -442,6 +425,16 @@
       opacity: 1;
     }
 
+    .btn-small {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+
+    a.btn-primary:hover,
+    a.btn-small:hover {
+      color: white !important;
+    }
+
     .btn-primary span,
     .btn-primary svg {
       position: relative;
@@ -464,8 +457,10 @@
       transform: scale(1.05);
     }
 
-    /* Mind Body Spirit Section */
+    /* Mind Body Spirit */
     .mind-body-spirit {
+      position: relative;
+      z-index: 1;
       padding: 6rem 1.5rem;
       background-color: hsla(var(--muted), 0.2);
     }
@@ -475,11 +470,9 @@
       text-align: center;
       margin-bottom: 2rem;
       letter-spacing: -0.01em;
-      color: hsl(var(--foreground));
     }
 
     .divider {
-      color: hsl(var(--foreground));
       margin: 0 1rem;
     }
 
@@ -495,7 +488,7 @@
       line-height: 1.7;
     }
 
-    /* Services Section */
+    /* Services */
     .services-section {
       padding: 8rem 1.5rem;
       background: linear-gradient(
@@ -536,10 +529,6 @@
       overflow: hidden;
       text-decoration: none;
       animation: fade-in-up 0.6s ease-out;
-    }
-
-    .service-card:nth-child(n) {
-      animation-delay: calc(0.1s * var(--i, 0));
     }
 
     .service-gradient {
@@ -588,11 +577,6 @@
       transition: var(--transition);
     }
 
-    .service-card:hover .service-icon {
-      color: hsl(var(--foreground) / 0.2);
-      transform: translate(-50%, -50%) scale(1.1);
-    }
-
     .service-overlay {
       position: absolute;
       inset: 0;
@@ -606,10 +590,6 @@
       transition: var(--transition);
     }
 
-    .service-card:hover .service-overlay {
-      opacity: 0.95;
-    }
-
     .service-content {
       position: absolute;
       inset: 0;
@@ -617,7 +597,6 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 1.5rem;
-      color: hsl(var(--foreground));
     }
 
     .service-content h3 {
@@ -635,12 +614,10 @@
       transition: var(--transition);
     }
 
-    .service-card:hover .service-link {
-      gap: 0.75rem;
-    }
-
-    /* Instagram Section */
+    /* Instagram */
     .instagram-section {
+      position: relative;
+      z-index: 1;
       padding: 6rem 1.5rem;
       background-color: hsla(var(--muted), 0.1);
     }
@@ -665,6 +642,8 @@
 
     /* Footer */
     .footer {
+      position: relative;
+      z-index: 1;
       background-color: hsla(var(--muted), 0.3);
       padding: 4rem 1.5rem 2rem;
       border-top: 1px solid hsl(var(--border));
@@ -745,18 +724,6 @@
       }
     }
 
-    @keyframes pulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.45;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 0.6;
-      }
-    }
-
     .fade-in-up {
       animation: fade-in-up 0.8s ease-out;
     }
@@ -787,13 +754,12 @@
         grid-template-columns: 1fr;
       }
 
-      .services-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      .logo-img {
+        height: 32px;
       }
     }
   </style>
   <body>
-    <!-- Header -->
     <header class="header">
       <nav class="nav-container">
         <a href="index.html" class="logo">
@@ -805,107 +771,34 @@
           <span></span>
         </button>
         <ul class="nav-menu" id="navMenu">
-          <li>
-            <a href="index.html" class="nav-link active">Home</a>
-          </li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
-          <li>
-            <a href="services.html" class="nav-link">Services</a>
-          </li>
-          <li>
-            <a href="gallery.html" class="nav-link">Gallery</a>
-          </li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li>
-            <a href="contact.html" class="nav-link">Contact</a>
-          </li>
-          <li>
-            <a
-              href="#book"
-              class="btn btn-primary"
-              style="padding: 0.5rem 1.25rem; font-size: 0.75rem"
-              >Book Now</a
-            >
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-background">
+        <canvas id="particleCanvas"></canvas>
         <div class="gradient-overlay"></div>
       </div>
       <div class="hero-content fade-in-up">
         <div class="hero-badge">
-          <svg
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="none"
+              stroke="#b58b61"
               stroke-linecap="round"
               stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <defs>
-                <style>
-                  .a {
-                    fill: none;
-                    stroke: #b58b61;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                  }
-                  .b {
-                    fill: #b58b61;
-                  }
-                </style>
-              </defs>
-              <path
-                class="a"
-                d="M38.849,11.8737c3.3879,2.7334,7.334,7.2956-.2888,11.492s-11.4342-2.9452-10.183-6.8721a4.2691,4.2691,0,0,0-1.7421,3.0029,3.0254,3.0254,0,0,1-1.3282-2.8585A6.0436,6.0436,0,0,0,23.69,18.2592s-2.05-7.8,5.5149-6.53c.693-1.3282,1.8769-2.974,5.4862-3.2628.1155-1.0683.7042-2.0212,2.5032-2.512a5.1337,5.1337,0,0,0,.3842,3.0318,8.2382,8.2382,0,0,1,5.9192-2.8586c.0866,3.09-2.3184,7.956-2.3184,7.956"
-              ></path>
-              <path
-                class="a"
-                d="M29.8124,22.6182c-2.1945,1.4522-2.311,3.837-5.0541,5.1364-3.0915,1.4644-5.0819,1.2127-6.8721,4.5621-2.0789.52-2.0212-1.2127-4.7931-1.155S7.7225,34.3956,6.1055,36.59s-2.4832,3.7536-.2887,5.1974,4.5621-3.6382,6.93-3.696,4.2156,1.0395,9.5863,1.0395a22.22,22.22,0,0,0,10.2265-2.98"
-              ></path>
-              <path
-                class="a"
-                d="M21.6753,28.9674c-2.5343-1.0682-4.9729-4.5045-4.4243-6.5257-1.0684,1.5014-1.0684,4.4178-1.0684,4.4178-1.4148-1.1839-1.3859-2.079-1.3859-2.079-1.0106,1.79.4138,6.8227.4138,6.8227"
-              ></path>
-              <path
-                class="a"
-                d="M32.3811,31.3157a12.4676,12.4676,0,0,0,1.617,8.3928c1.3474,2.177,2.6179,2.337,3.8114,1.7325,1.6769-.8495,1.3089-2.618.462-4.2349a15.3866,15.3866,0,0,1-.8855-8.3543"
-              ></path>
-              <path
-                class="a"
-                d="M38.7727,40.4671a2.4081,2.4081,0,0,0,1.3751-.2916c1.6769-.8494,1.309-2.6179.462-4.2349a14.1408,14.1408,0,0,1-1.0575-6.57"
-              ></path>
-              <path
-                class="a"
-                d="M39.6117,22.7373c1.74.5321,2.0477,2.9961,2.0477,2.9961h-1.386a3.8915,3.8915,0,0,1,.3622,4.0809,3.0731,3.0731,0,0,1-1.6979-.9625s-.8186,2.1919-1.7434,2.7514"
-              ></path>
-              <circle class="b" cx="31.8903" cy="16.5225" r="0.75"></circle>
-              <path
-                class="a"
-                d="M36.5846,19.4715s-.1611-.307-.32-.6247a4.2881,4.2881,0,0,0,.2021-1.3282"
-              ></path>
-              <path
-                class="a"
-                d="M34.565,18.6007a3.6178,3.6178,0,0,0,1.7.2461"
-              ></path>
-              <path
-                class="a"
-                d="M28.3772,16.4936c.3465-.9817,1.3475-2.66,2.9644-2.4006"
-              ></path>
-              <path
-                class="a"
-                d="M35.1819,12.6822a2.6309,2.6309,0,0,1,3.6671-.8085"
-              ></path>
-              <circle class="b" cx="37.1943" cy="13.7348" r="0.75"></circle>
-            </g>
+              d="M38.849,11.8737c3.3879,2.7334,7.334,7.2956-.2888,11.492s-11.4342-2.9452-10.183-6.8721a4.2691,4.2691,0,0,0-1.7421,3.0029"
+            />
           </svg>
           <span>Holistic Wellness & Sacred Healing</span>
         </div>
@@ -916,9 +809,8 @@
         </h1>
 
         <p class="hero-subtitle">
-          Experience ancient Nepali healing traditions blended with modern
-          wellness practices in a sacred sanctuary designed for your
-          transformation.
+          Experience ancient healing practices blended with modern wellness in a
+          sacred sanctuary.
         </p>
 
         <div class="hero-cta">
@@ -995,7 +887,6 @@
         </div>
       </div>
     </section>
-
     <!-- Mind Body Spirit -->
     <section class="mind-body-spirit">
       <div class="container">
@@ -1009,7 +900,6 @@
         </blockquote>
       </div>
     </section>
-
     <!-- Services Grid -->
     <section class="services-section">
       <div class="container">
@@ -1020,7 +910,6 @@
             well-being
           </p>
         </div>
-
         <div class="services-grid">
           <a href="#massage" class="service-card">
             <div class="service-gradient gradient-1"></div>
@@ -1055,7 +944,6 @@
               </div>
             </div>
           </a>
-
           <a href="#holistic" class="service-card">
             <div class="service-gradient gradient-2"></div>
             <svg
@@ -1089,7 +977,6 @@
               </div>
             </div>
           </a>
-
           <a href="#yoga" class="service-card">
             <div class="service-gradient gradient-3"></div>
             <svg
@@ -1121,7 +1008,6 @@
               </div>
             </div>
           </a>
-
           <a href="#pregnancy" class="service-card">
             <div class="service-gradient gradient-1"></div>
             <svg
@@ -1153,7 +1039,6 @@
               </div>
             </div>
           </a>
-
           <a href="#tea" class="service-card">
             <div class="service-gradient gradient-2"></div>
             <svg
@@ -1187,7 +1072,6 @@
               </div>
             </div>
           </a>
-
           <a href="#art" class="service-card">
             <div class="service-gradient gradient-3"></div>
             <svg
@@ -1221,7 +1105,6 @@
               </div>
             </div>
           </a>
-
           <a href="#beauty" class="service-card">
             <div class="service-gradient gradient-1"></div>
             <svg
@@ -1255,7 +1138,6 @@
               </div>
             </div>
           </a>
-
           <a href="#shop" class="service-card">
             <div class="service-gradient gradient-2"></div>
             <svg
@@ -1290,7 +1172,6 @@
         </div>
       </div>
     </section>
-
     <!-- Instagram Feed -->
     <section class="instagram-section">
       <div class="container text-center">
@@ -1322,7 +1203,6 @@
         >
           @wellness.soma
         </a>
-
         <!-- SnapWidget Instagram Feed -->
         <div
           style="
@@ -1350,7 +1230,6 @@
           >
           </iframe>
         </div>
-
         <a
           href="https://www.instagram.com/wellness.soma/"
           target="_blank"
@@ -1371,7 +1250,6 @@
         </a>
       </div>
     </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -1413,6 +1291,93 @@
     </footer>
 
     <script>
+      // Particle Animation
+      const canvas = document.getElementById("particleCanvas");
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        const heroSection = document.querySelector(".hero");
+        canvas.width = heroSection.offsetWidth;
+        canvas.height = heroSection.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const particles = [];
+      const particleCount = 80;
+      const connectionDistance = 150;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.size = Math.random() * 2 + 1;
+          this.pulseOffset = Math.random() * Math.PI * 2;
+          this.baseAlpha = 0.3 + Math.random() * 0.3;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw(time) {
+          const pulse = Math.sin(time * 0.001 + this.pulseOffset) * 0.3 + 0.7;
+          const alpha = this.baseAlpha * pulse;
+
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(181, 139, 97, ${alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function connectParticles(time) {
+        const pulse = Math.sin(time * 0.0008) * 0.3 + 0.5;
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              const alpha = (1 - distance / connectionDistance) * 0.15 * pulse;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(181, 139, 97, ${alpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate(time) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        connectParticles(time);
+
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw(time);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate(0);
+
       // Mobile Menu Toggle
       const mobileMenuBtn = document.getElementById("mobileMenuBtn");
       const navMenu = document.getElementById("navMenu");
@@ -1420,56 +1385,43 @@
       if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener("click", () => {
           navMenu.classList.toggle("active");
-          mobileMenuBtn.classList.toggle("active");
         });
       }
 
-      // Smooth scroll for anchor links
+      // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            target.scrollIntoView({ behavior: "smooth" });
           }
         });
       });
 
-      // Add scroll effect to header
-      let lastScroll = 0;
+      // Header scroll effect
       const header = document.querySelector(".header");
-
       window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
+        if (window.pageYOffset > 100) {
           header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
         } else {
           header.style.boxShadow = "none";
         }
-
-        lastScroll = currentScroll;
       });
 
-      // Intersection Observer for fade-in animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+      // Intersection Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      );
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // Observe all elements with fade-in-up class
       document.addEventListener("DOMContentLoaded", () => {
         const fadeElements = document.querySelectorAll(".fade-in-up");
         fadeElements.forEach((el) => {
@@ -1479,11 +1431,6 @@
             "opacity 0.6s ease-out, transform 0.6s ease-out";
           observer.observe(el);
         });
-      });
-
-      // Service cards animation delays
-      document.querySelectorAll(".service-card").forEach((card, index) => {
-        card.style.setProperty("--i", index);
       });
     </script>
   </body>
