@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
+    />
+    <title>About Us- Soma Wellness Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: 23 35% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 30 25% 65%;
+        --secondary-foreground: 0 0% 100%;
+        --accent: 35 40% 60%;
+        --accent-foreground: 0 0% 100%;
+        --background: 30 20% 94%;
+        --foreground: 25 15% 25%;
+        --muted: 30 15% 90%;
+        --muted-foreground: 25 10% 50%;
+        --border: 30 15% 85%;
+        --card: 0 0% 100%;
+        --container-padding: 1.5rem;
+        --max-width: 1400px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: hsla(var(--background), 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid hsl(var(--border));
+      }
+
+      .nav-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1rem var(--container-padding);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: hsl(var(--foreground));
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .logo-img:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .mobile-menu-btn span {
+        width: 24px;
+        height: 2px;
+        background-color: hsl(var(--foreground));
+        transition: var(--transition);
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-link {
+        color: hsl(var(--foreground) / 0.7);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          hsl(var(--primary)),
+          hsl(var(--accent))
+        );
+        transition: var(--transition);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: hsl(var(--primary));
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      /* Footer*/
+      .footer-minimal {
+        background-color: transparent;
+        border-top: 1px solid hsl(var(--border));
+        padding: 3rem 1.5rem;
+      }
+
+      .footer-minimal-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* Left: Connect Info */
+      .footer-connect {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .footer-connect h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: hsl(var(--foreground));
+      }
+
+      .footer-connect p {
+        font-size: 0.95rem;
+        color: hsl(var(--foreground) / 0.7);
+        margin: 0;
+      }
+
+      .connect-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: hsl(var(--foreground) / 0.7);
+      }
+
+      .connect-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: hsl(var(--foreground) / 0.7);
+        transition: color 0.3s ease;
+      }
+
+      .connect-links a:hover {
+        color: hsl(var(--primary));
+      }
+
+      /* Map */
+      .footer-map {
+        flex: 1 1 400px;
+      }
+
+      .footer-map iframe {
+        border-radius: 1rem;
+        width: 100%;
+        height: 250px;
+      }
+
+      /* Animations */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fade-in-up 0.8s ease-out;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 8rem 1.5rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        font-weight: 400;
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+      }
+
+      p.intro {
+        max-width: 750px;
+        margin: 0 auto 5rem;
+        text-align: center;
+        color: rgba(74, 59, 47, 0.8);
+        font-size: 1.05rem;
+      }
+
+      /* About blocks */
+      .about-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-bottom: 5rem;
+      }
+
+      .about-block:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 280px;
+      }
+
+      .about-text h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+        color: rgba(74, 59, 47, 0.8);
+      }
+
+      .about-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-image img {
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease;
+      }
+
+      .about-image img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Divider */
+      .divider {
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+        margin: 4rem auto;
+        border-radius: 2px;
+      }
+
+      /* Team Section */
+      .team-section {
+        text-align: center;
+        padding: 3rem 1.5rem 0rem;
+        width: 100%;
+        max-width: 800px;
+        position: relative;
+      }
+
+      .team-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      /* Circular Carousel */
+      .team-carousel {
+        position: relative;
+        width: 100%;
+        height: 560px;
+        perspective: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .team-member {
+        position: absolute;
+        width: 280px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+        cursor: pointer;
+      }
+
+      .team-member img {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, filter 0.5s ease;
+      }
+
+      .team-member:hover img {
+        transform: scale(1.08);
+        filter: brightness(1.1);
+      }
+
+      .team-member h4 {
+        margin-top: 1rem;
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .team-info {
+        position: absolute;
+        background: var(--bg);
+        border: 2px solid var(--accent);
+        padding: 1rem;
+        border-radius: 8px;
+        min-width: 180px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        pointer-events: none; /* So it doesn’t block hover */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: var(--text);
+        font-size: 0.95rem;
+        z-index: 1000;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.5rem 3rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        position: relative;
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+        box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+        overflow: hidden;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          hsl(var(--secondary)),
+          hsl(var(--accent))
+        );
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 0;
+      }
+
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px hsla(var(--primary), 0.4);
+      }
+
+      .btn-primary:hover::before {
+        opacity: 0.3;
+      }
+
+      .btn-small {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.75rem;
+      }
+
+      a.btn-primary:hover,
+      a.btn-small:hover {
+        color: white !important;
+      }
+
+      .btn-primary span,
+      .btn-primary svg {
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn-primary:hover svg {
+        transform: translateX(4px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: hsl(var(--foreground));
+        border: 2px solid hsl(var(--border));
+      }
+
+      .btn-outline:hover {
+        border-color: hsl(var(--primary));
+        background-color: hsla(var(--primary), 0.05);
+        transform: scale(1.05);
+      }
+
+      /* Fade Animation */
+      [data-fade] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      [data-fade].visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="SOMA" class="logo-img" />
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="aboutus.html" class="nav-link active">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2 data-fade>About Us</h2>
+      <p class="intro" data-fade>
+        At Soma Wellness Studio, we nurture mind, body, and spirit through a
+        harmonious blend of traditional wisdom and contemporary wellness
+        practices. Our sanctuary is a space for self-discovery, connection, and
+        holistic growth.
+      </p>
+
+      <div class="about-block" data-fade>
+        <div class="about-text">
+          <h3>Our Philosophy</h3>
+          <p>
+            We believe that true well-being is a journey, not a destination.
+            Every session, conversation, and experience at Soma is crafted to
+            bring balance and awareness — guiding you toward a state of harmony
+            and self-alignment.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="images/philo.png" alt="Philosophy" />
+        </div>
+      </div>
+
+      <div class="about-block" data-fade>
+        <div class="about-text">
+          <h3>Our Approach</h3>
+          <p>
+            We integrate modern science with ancient practices, offering
+            personalized care that respects the uniqueness of each individual.
+            Wellness here is collaborative — an ever-evolving relationship
+            between you and your body’s wisdom.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="images/approach.jpg" alt="Approach" />
+        </div>
+      </div>
+
+      <div class="divider" data-fade></div>
+
+      <section class="team-section">
+        <h2 class="team-title">Meet Our Team</h2>
+
+        <div class="team-carousel" id="teamCarousel">
+          <div class="team-member" data-info="Co-Founder & Visionary">
+            <img src="images/prakriti.jpeg" alt="Prakriti" />
+            <h4>Prakriti</h4>
+          </div>
+          <div
+            class="team-member"
+            data-info="Your Head Therapist – Here to Support You"
+          >
+            <img src="images/binda.png" alt="Binda" />
+            <h4>Binda</h4>
+          </div>
+          <div
+            class="team-member"
+            data-info="Co-founder (SOMA Wellness Studio)"
+          >
+            <img src="images/aadi.jpeg" alt="Aadi" />
+            <h4>Aadi</h4>
+          </div>
+          <div class="team-member" data-info="Operations Supervisor">
+            <img src="images/bibuti.jpg" alt="Bibuti" />
+            <h4>Bibhuti</h4>
+          </div>
+          <div
+            class="team-member"
+            data-info="Your Therapist – Here to Help You Heal"
+          >
+            <img src="images/sujita.png" alt="Sujita" />
+            <h4>Sujita</h4>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      // Fade on scroll
+      const faders = document.querySelectorAll("[data-fade]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.2 }
+      );
+      faders.forEach((el) => observer.observe(el));
+
+      // Team Carousel Rotation
+      const members = document.querySelectorAll(".team-member");
+      const total = members.length;
+      const radius = 320;
+      let angle = 0;
+      let rotating = true;
+
+      function positionMembers() {
+        members.forEach((member, i) => {
+          const theta = ((2 * Math.PI) / total) * i + angle;
+          const x = Math.cos(theta) * radius;
+          const y = Math.sin(theta) * radius * 0.45;
+          const scale = 1 + Math.sin(theta) * 0.25;
+          const opacity = 0.6 + Math.sin(theta) * 0.4;
+          const zIndex = Math.round(Math.sin(theta) * 100);
+
+          member.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+          member.style.opacity = opacity;
+          member.style.zIndex = zIndex;
+        });
+      }
+
+      function animateCarousel() {
+        if (rotating) {
+          angle += 0.0025;
+          positionMembers();
+        }
+        requestAnimationFrame(animateCarousel);
+      }
+
+      const carousel = document.getElementById("teamCarousel");
+      carousel.addEventListener("mouseenter", () => (rotating = false));
+      carousel.addEventListener("mouseleave", () => (rotating = true));
+
+      positionMembers();
+      animateCarousel();
+
+      const infoBox = document.createElement("div");
+      infoBox.classList.add("team-info");
+      infoBox.style.position = "absolute";
+      infoBox.style.backgroundColor = "white";
+      infoBox.style.padding = "8px 12px";
+      infoBox.style.borderRadius = "6px";
+      infoBox.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+      infoBox.style.pointerEvents = "none";
+      infoBox.style.transition = "opacity 0.2s";
+      infoBox.style.opacity = 0;
+      document.body.appendChild(infoBox);
+
+      members.forEach((member) => {
+        member.addEventListener("mouseenter", (e) => {
+          const info = member.getAttribute("data-info");
+          infoBox.textContent = info;
+          infoBox.style.opacity = 1;
+        });
+
+        member.addEventListener("mousemove", (e) => {
+          infoBox.style.top = e.pageY + 15 + "px";
+          infoBox.style.left = e.pageX + 15 + "px";
+        });
+
+        member.addEventListener("mouseleave", () => {
+          infoBox.style.opacity = 0;
+        });
+      });
+    </script>
+    <footer class="footer-minimal">
+      <div class="container">
+        <div class="footer-minimal-content">
+          <!-- Left: Connect -->
+          <div class="footer-connect">
+            <h3>Soma Wellness Studio</h3>
+            <p>Pepsicola, New Townplanning</p>
+            <p>Opening hours: 11am - 6pm</p>
+            <div class="connect-links">
+              <span>Connect:</span>
+              <a
+                href="https://www.instagram.com/wellness.soma/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37a4 4 0 1 1-4.9-4.9 4 4 0 0 1 4.9 4.9z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:info@somawellness.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1808838.4620612687!2d82.93259815625!3d27.689867999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b603f95a8b9%3A0x7e278db8a4c5d6ca!2sSoma%20Wellness%20Studio!5e0!3m2!1sen!2snp!4v1760603546071!5m2!1sen!2snp"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

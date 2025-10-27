@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
+    />
+    <title>Services- Soma Wellness Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --primary: 23 35% 55%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 30 25% 65%;
+      --secondary-foreground: 0 0% 100%;
+      --accent: 35 40% 60%;
+      --accent-foreground: 0 0% 100%;
+      --background: 30 20% 94%;
+      --foreground: 25 15% 25%;
+      --muted: 30 15% 90%;
+      --muted-foreground: 25 10% 50%;
+      --border: 30 15% 85%;
+      --card: 0 0% 100%;
+      --container-padding: 1.5rem;
+      --max-width: 1400px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: hsla(var(--background), 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem var(--container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: hsl(var(--foreground) / 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: hsl(var(--primary));
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 4rem;
+      text-align: center;
+    }
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    p.intro {
+      max-width: 750px;
+      margin: 0 auto 5rem;
+      font-size: 1.05rem;
+      color: rgba(74, 59, 47, 0.8);
+    }
+
+    /* Flip Cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      perspective: 1200px;
+    }
+    .service-card {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+    }
+    .service-card:hover {
+      transform: rotateY(180deg);
+    }
+
+    .service-card .front,
+    .service-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      background-color: hsl(var(--card));
+      transition: all 0.3s ease;
+    }
+    .service-card .front h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .service-card .front p {
+      color: rgba(74, 59, 47, 0.8);
+    }
+
+    .service-card .back {
+      transform: rotateY(180deg);
+      background-color: hsl(var(--background));
+      text-align: center;
+    }
+    .service-card .back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    /* Footer*/
+    .footer-minimal {
+      background-color: transparent;
+      border-top: 1px solid hsl(var(--border));
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-minimal-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Left: Connect Info */
+    .footer-connect {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .footer-connect h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-connect p {
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+      margin: 0;
+    }
+
+    .connect-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+    }
+
+    .connect-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--foreground) / 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .connect-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    /* Map */
+    .footer-map {
+      flex: 1 1 400px;
+    }
+
+    .footer-map iframe {
+      border-radius: 1rem;
+      width: 100%;
+      height: 250px;
+    }
+
+    
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 0.8s ease-out;
+    }
+
+
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 3rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      position: relative;
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        hsl(var(--secondary)),
+        hsl(var(--accent))
+      );
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px hsla(var(--primary), 0.4);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 0.3;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+
+    a.btn-primary:hover,
+    a.btn-small:hover {
+      color: white !important;
+    }
+
+    .btn-primary span,
+    .btn-primary svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: hsl(var(--foreground));
+      border: 2px solid hsl(var(--border));
+    }
+
+    .btn-outline:hover {
+      border-color: hsl(var(--primary));
+      background-color: hsla(var(--primary), 0.05);
+      transform: scale(1.05);
+    }
+  </style>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="SOMA" class="logo-img" />
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="aboutus.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Our Wellness Services</h2>
+      <p class="intro">
+        Explore our holistic wellness offerings to nurture your mind, body, and
+        spirit.
+      </p>
+
+      <div class="services-grid">
+        <!-- Example card -->
+        <div class="service-card">
+          <div class="front">
+            <h3>Massage Therapies</h3>
+            <p>Release tension and improve circulation.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Therapeutic Massage" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Yoga & Meditation</h3>
+            <p>Enhance flexibility, strength, and mindfulness.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Yoga" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Holistic Healing</h3>
+            <p>Rebalance your body's energy for harmony.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Energy Healing" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Pregnancy Care</h3>
+            <p>Best Care during your Special time.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Aromatherapy" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Herbal Therapy</h3>
+            <p>Natural remedies to support wellness.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Herbal Therapy" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Tea & Tisanes</h3>
+            <p>Hand Crafted Nepali Teas</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Nutrition" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Sound Therapy</h3>
+            <p>Healing vibrations to reduce stress.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Sound Therapy" />
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="front">
+            <h3>Art & Creativity</h3>
+            <p>Develop focus, clarity, and Creativity.</p>
+          </div>
+          <div class="back">
+            <img src="images/msg.webp" alt="Mindfulness Coaching" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-minimal">
+      <div class="container">
+        <div class="footer-minimal-content">
+          <!-- Left: Connect -->
+          <div class="footer-connect">
+            <h3>Soma Wellness Studio</h3>
+            <p>Pepsicola, New Townplanning</p>
+            <p>Opening hours: 11am - 6pm</p>
+            <div class="connect-links">
+              <span>Connect:</span>
+              <a
+                href="https://www.instagram.com/wellness.soma/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37a4 4 0 1 1-4.9-4.9 4 4 0 0 1 4.9 4.9z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:info@somawellness.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1808838.4620612687!2d82.93259815625!3d27.689867999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b603f95a8b9%3A0x7e278db8a4c5d6ca!2sSoma%20Wellness%20Studio!5e0!3m2!1sen!2snp!4v1760603546071!5m2!1sen!2snp"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

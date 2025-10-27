@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
+    />
+    <title>Gallery- Soma Wellness Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --primary: 23 35% 55%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 30 25% 65%;
+      --secondary-foreground: 0 0% 100%;
+      --accent: 35 40% 60%;
+      --accent-foreground: 0 0% 100%;
+      --background: 30 20% 94%;
+      --foreground: 25 15% 25%;
+      --muted: 30 15% 90%;
+      --muted-foreground: 25 10% 50%;
+      --border: 30 15% 85%;
+      --card: 0 0% 100%;
+      --container-padding: 1.5rem;
+      --max-width: 1400px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 3rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      position: relative;
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        hsl(var(--secondary)),
+        hsl(var(--accent))
+      );
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px hsla(var(--primary), 0.4);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 0.3;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+
+    a.btn-primary:hover,
+    a.btn-small:hover {
+      color: white !important;
+    }
+
+    .btn-primary span,
+    .btn-primary svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: hsl(var(--foreground));
+      border: 2px solid hsl(var(--border));
+    }
+
+    .btn-outline:hover {
+      border-color: hsl(var(--primary));
+      background-color: hsla(var(--primary), 0.05);
+      transform: scale(1.05);
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: hsla(var(--background), 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem var(--container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: hsl(var(--foreground) / 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: hsl(var(--primary));
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    /* Footer*/
+    .footer-minimal {
+      background-color: transparent;
+      border-top: 1px solid hsl(var(--border));
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-minimal-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Left: Connect Info */
+    .footer-connect {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .footer-connect h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-connect p {
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+      margin: 0;
+    }
+
+    .connect-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+    }
+
+    .connect-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--foreground) / 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .connect-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    /* Map */
+    .footer-map {
+      flex: 1 1 400px;
+    }
+
+    .footer-map iframe {
+      border-radius: 1rem;
+      width: 100%;
+      height: 250px;
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 0.8s ease-out;
+    }
+
+    .gallery-section {
+      padding: 6rem 1rem;
+      text-align: center;
+      background: linear-gradient(
+        to bottom,
+        hsl(0 0% 100%),
+        hsl(var(--background))
+      );
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .gallery-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: hsl(30 20% 95%);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: hsl(var(--accent));
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .gallery-header h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      color: hsl(var(--foreground));
+    }
+
+    .gallery-header p {
+      color: hsl(25 10% 40%);
+      font-size: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: hsl(0 0% 98%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .lightbox.active img {
+      transform: scale(1);
+    }
+
+    .lightbox::after {
+      content: "✕";
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .lightbox::after:hover {
+      opacity: 0.7;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="SOMA" class="logo-img" />
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="aboutus.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="gallery-header">
+          <div class="feature-icon">
+            <!-- Inline SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="13" r="3.5" />
+              <path
+                d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"
+              />
+            </svg>
+          </div>
+          <h2>Our Gallery</h2>
+          <p>
+            A visual journey through moments of healing, connection, and
+            transformation.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 1" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 2" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 3" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 4" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 5" />
+          </div>
+          <div class="gallery-item">
+            <img src="images/facial.png" alt="Gallery Image 6" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Expanded view" />
+    </div>
+
+    <footer class="footer-minimal">
+      <div class="container">
+        <div class="footer-minimal-content">
+          <!-- Left: Connect -->
+          <div class="footer-connect">
+            <h3>Soma Wellness Studio</h3>
+            <p>Pepsicola, New Townplanning</p>
+            <p>Opening hours: 11am - 6pm</p>
+            <div class="connect-links">
+              <span>Connect:</span>
+              <a
+                href="https://www.instagram.com/wellness.soma/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37a4 4 0 1 1-4.9-4.9 4 4 0 0 1 4.9 4.9z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:info@somawellness.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1808838.4620612687!2d82.93259815625!3d27.689867999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b603f95a8b9%3A0x7e278db8a4c5d6ca!2sSoma%20Wellness%20Studio!5e0!3m2!1sen!2snp!4v1760603546071!5m2!1sen!2snp"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Fade-in animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll(".gallery-header, .gallery-item")
+        .forEach((el) => observer.observe(el));
+
+      // Lightbox functionality
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+
+      document.querySelectorAll(".gallery-item img").forEach((img) => {
+        img.addEventListener("click", () => {
+          lightbox.classList.add("active");
+          lightboxImg.src = img.src;
+        });
+      });
+
+      // Close lightbox on click or ESC
+      lightbox.addEventListener("click", (e) => {
+        if (e.target !== lightboxImg) lightbox.classList.remove("active");
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") lightbox.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

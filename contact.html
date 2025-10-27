@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
+    />
+    <title>Contact- Soma Wellness Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --primary: 23 35% 55%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 30 25% 65%;
+      --secondary-foreground: 0 0% 100%;
+      --accent: 35 40% 60%;
+      --accent-foreground: 0 0% 100%;
+      --background: 30 20% 94%;
+      --foreground: 25 15% 25%;
+      --muted: 30 15% 90%;
+      --muted-foreground: 25 10% 50%;
+      --border: 30 15% 85%;
+      --card: 0 0% 100%;
+      --container-padding: 1.5rem;
+      --max-width: 1400px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: hsla(var(--background), 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem var(--container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: hsl(var(--foreground) / 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: hsl(var(--primary));
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #3e2f27;
+      margin-top: 5%;
+    }
+
+    .subtitle {
+      color: #7a6b61;
+      font-size: 16px;
+      margin-bottom: 50px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      padding: 20px;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 320px;
+      max-width: 450px;
+      text-align: left;
+    }
+
+    .contact-form h2 {
+      font-weight: 500;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      background-color: #fff;
+    }
+
+    .contact-form textarea {
+      resize: none;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .contact-info h2 {
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .info-box {
+      background-color: white;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .info-box svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      fill: #b37353;
+    }
+
+    .info-box h4 {
+      margin: 0 0 3px;
+      color: #4a3b32;
+      font-size: 15px;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #7a6b61;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 3rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      position: relative;
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        hsl(var(--secondary)),
+        hsl(var(--accent))
+      );
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px hsla(var(--primary), 0.4);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 0.3;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+
+    a.btn-primary:hover,
+    a.btn-small:hover {
+      color: white !important;
+    }
+
+    .btn-primary span,
+    .btn-primary svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-mid {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: hsl(var(--foreground));
+      border: 2px solid hsl(var(--border));
+    }
+
+    .btn-outline:hover {
+      border-color: hsl(var(--primary));
+      background-color: hsla(var(--primary), 0.05);
+      transform: scale(1.05);
+    }
+
+    /* Footer*/
+    .footer-minimal {
+      background-color: transparent;
+      border-top: 1px solid hsl(var(--border));
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-minimal-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Left: Connect Info */
+    .footer-connect {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .footer-connect h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-connect p {
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+      margin: 0;
+    }
+
+    .connect-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+    }
+
+    .connect-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--foreground) / 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .connect-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    /* Map */
+    .footer-map {
+      flex: 1 1 400px;
+    }
+
+    .footer-map iframe {
+      border-radius: 1rem;
+      width: 100%;
+      height: 250px;
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 0.8s ease-out;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: hsl(var(--accent));
+      box-shadow: 0 0 6px hsla(var(--accent), 0.4);
+      outline: none;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1.5px solid hsl(var(--primary) / 0.6);
+      border-radius: 8px;
+      background: transparent;
+      font-size: 1rem;
+      outline: none;
+      color: hsl(var(--foreground));
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      color: hsl(var(--foreground) / 0.6);
+      font-size: 1rem;
+      background: hsl(var(--background)); /* <--- FIXED */
+      padding: 0 0.3rem;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -8px;
+      left: 0.8rem;
+      font-size: 0.8rem;
+      color: hsl(var(--primary));
+    }
+  </style>
+  <body>
+    <!-- Navbar -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="SOMA" class="logo-img" />
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="aboutus.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li>
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="container">
+      <h1 class="fade-in">Connect With Us</h1>
+      <p class="subtitle">
+        We’re here to support your wellness journey. Reach out and let’s begin.
+      </p>
+
+      <div class="content">
+        <!-- Form -->
+        <div class="contact-form fade-in">
+          <h2 class="msg-heading">Send a Message</h2>
+          <div class="form-group">
+            <input type="text" id="name" placeholder=" " />
+            <label for="name">Your Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="email" placeholder=" " />
+            <label for="email">Email</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="subject" placeholder=" " />
+            <label for="subject">Subject</label>
+          </div>
+
+          <div class="form-group">
+            <textarea id="message" placeholder=" " rows="5"></textarea>
+            <label for="message">Your Message</label>
+          </div>
+
+          <button class="btn btn-primary btn-mid" onclick="sendMessage()">
+            Send Message
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="contact-info fade-in">
+          <h2>Get in Touch</h2>
+
+          <div class="info-box">
+            <!-- Location -->
+            <svg
+              version="1.0"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 64 64"
+              enable-background="new 0 0 64 64"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    fill="#F76D57"
+                    d="M32,52.789l-12-18C18.5,32,16,28.031,16,24c0-8.836,7.164-16,16-16s16,7.164,16,16 c0,4.031-2.055,8-4,10.789L32,52.789z"
+                  ></path>
+                  <g>
+                    <path
+                      fill="#394240"
+                      d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289 l16,24C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289 C54.289,34.008,56,29.219,56,24C56,10.746,45.254,0,32,0z M44,34.789l-12,18l-12-18C18.5,32,16,28.031,16,24 c0-8.836,7.164-16,16-16s16,7.164,16,16C48,28.031,45.945,32,44,34.789z"
+                    ></path>
+                    <circle fill="#394240" cx="32" cy="24" r="8"></circle>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <div>
+              <h4>Location</h4>
+              <p>Pepsicola New Townplanning, Nepal</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <!-- Phone -->
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#6d6969"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M18 9V6M18 6V3M18 6H15M18 6H21M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
+                  stroke="#636363"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            <div>
+              <h4>Phone</h4>
+              <p>+977</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <!-- Email -->
+            <svg
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M913.871918 369.867311c-6.433071-6.433071-14.863743-9.649095-23.289295-9.649095h-230.077272l51.34273-67.684964a24.706353 24.706353 0 0 0 2.444014-25.927848c-4.180524-8.429648-12.738157-13.706753-22.133329-13.706753h-72.31702V120.10482c0-13.641224-11.065129-24.706353-24.706353-24.706353H429.657094c-13.641224 0-24.706353 11.065129-24.706352 24.706353v132.793831h-73.605069a24.657206 24.657206 0 0 0-22.133329 13.706753 24.714544 24.714544 0 0 0 2.447086 25.927848l51.277201 67.684964H132.924888c-8.429648 0-16.856224 3.215-23.293391 9.649095-6.433071 6.433071-9.649095 14.863743-9.649095 23.292367v498.113043c0 8.426576 3.215 16.856224 9.649095 23.289296a32.849313 32.849313 0 0 0 23.293391 9.652167h757.656711c8.426576 0 16.856224-3.218072 23.289295-9.652167a32.840098 32.840098 0 0 0 9.652167-23.289296V393.159678a32.834978 32.834978 0 0 0-9.651143-23.292367z"
+                  fill="#27323A"
+                ></path>
+                <path
+                  d="M429.657094 302.310333c13.641224 0 24.706353-11.065129 24.706353-24.706353V144.810149H570.430064v132.793831c0 13.641224 11.0682 24.706353 24.706353 24.706353h47.291215c-36.351001 47.805206-105.258483 138.717008-130.672341 172.23799-25.414882-33.520982-94.387893-124.367255-130.67234-172.23799h48.574143z"
+                  fill="#FFFFFF"
+                ></path>
+                <path
+                  d="M400.447694 409.630921l91.617259 120.69765c4.697586 6.1771 11.968196 9.780153 19.689315 9.780153s15.054186-3.604076 19.686243-9.780153l91.554802-120.69765H832.288736L510.209225 687.253332 190.76417 409.630921h209.683524z"
+                  fill="#7acd7b"
+                ></path>
+                <path
+                  d="M149.396132 439.097317l170.047898 147.78556-170.047898 236.059833zM172.942422 874.802502L356.88854 619.439359l120.892189 105.067016c9.395172 8.23511 21.4248 12.738157 33.972515 12.738158 12.481162 0 24.577343-4.503048 33.906986-12.675701l120.958741-105.129473 183.943046 255.363143H172.942422zM874.11138 822.94271L704.063481 586.882877l170.047899-147.78556z"
+                  fill="#F4CE73"
+                ></path>
+              </g>
+            </svg>
+            <div>
+              <h4>Email</h4>
+              <p>@gmail.com.com</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <!-- Hours -->
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M22 6.78049C25.01 8.74049 27 12.1395 27 16.0005C27 19.8605 25.01 23.2595 22 25.2195C20.28 26.3495 18.22 27.0005 16 27.0005C13.78 27.0005 11.72 26.3495 10 25.2195C6.99 23.2595 5 19.8605 5 16.0005C5 12.1395 6.99 8.74049 10 6.78049C11.72 5.65049 13.78 5.00049 16 5.00049C18.22 5.00049 20.28 5.65049 22 6.78049Z"
+                  fill="#FFC44D"
+                ></path>
+                <path
+                  d="M22 25.2197V30.4997C22 30.7807 21.78 30.9997 21.5 30.9997H10.5C10.22 30.9997 10 30.7807 10 30.4997V25.2197C11.72 26.3497 13.78 26.9997 16 26.9997C18.22 26.9997 20.28 26.3497 22 25.2197ZM22 1.5V6.78C20.28 5.65 18.22 5 16 5C13.78 5 11.72 5.65 10 6.78V1.5C10 1.23 10.22 1 10.5 1H21.5C21.78 1 22 1.23 22 1.5Z"
+                  fill="#668077"
+                ></path>
+                <path
+                  d="M16 9V16.005L19 19.002M10 3V1.505C10 1.229 10.224 1 10.5 1H21.5C21.776 1 22 1.229 22 1.505V3M22 29V30.505C22 30.781 21.776 31 21.5 31H10.5C10.224 31 10 30.781 10 30.505V29M27 16.0049C27 9.9299 22.075 5.0049 16 5.0049C9.925 5.0049 5 9.9299 5 16.0049C5 22.0799 9.925 27.0049 16 27.0049C22.075 27.0049 27 22.0799 27 16.0049Z"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </svg>
+            <div>
+              <h4>Hours</h4>
+              <p>Thur - Tue: 11AM - 6PM<br />By Appointment Basis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-minimal">
+      <div class="container">
+        <div class="footer-minimal-content">
+          <!-- Left: Connect -->
+          <div class="footer-connect">
+            <h3>Soma Wellness Studio</h3>
+            <p>Pepsicola, New Townplanning</p>
+            <p>Opening hours: 11am - 6pm</p>
+            <div class="connect-links">
+              <span>Connect:</span>
+              <a
+                href="https://www.instagram.com/wellness.soma/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37a4 4 0 1 1-4.9-4.9 4 4 0 0 1 4.9 4.9z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:info@somawellness.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1808838.4620612687!2d82.93259815625!3d27.689867999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b603f95a8b9%3A0x7e278db8a4c5d6ca!2sSoma%20Wellness%20Studio!5e0!3m2!1sen!2snp!4v1760603546071!5m2!1sen!2snp"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function sendMessage() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          alert("Please fill out all required fields.");
+          return;
+        }
+
+        alert(`Thank you, ${name}! Your message has been sent successfully.`);
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("message").value = "";
+      }
+
+      const fadeEls = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      fadeEls.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
