@@ -492,39 +492,61 @@
       line-height: 1.7;
       text-align: center;
     }
+    /* Services Section */
+    .services-section {
+      padding: 2rem 1.5rem;
+      background: linear-gradient(
+        to bottom,
+        hsl(var(--background)),
+        hsla(var(--muted), 0.2)
+      );
+    }
 
-    /* Circular Layout (matches your theme) */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Circular Carousel */
     .services-carousel {
       position: relative;
       width: 100%;
-      height: 650px;
-      perspective: 1000px;
+      height: 700px;
       display: flex;
       justify-content: center;
       align-items: center;
+      perspective: 1000px;
     }
 
+    /* Each service item */
     .services-carousel .service-card {
       position: absolute;
-      width: 260px;
-      height: 320px;
-      background-color: #fff;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 220px;
+      text-align: center;
       transition: transform 0.6s ease, opacity 0.6s ease;
-      cursor: pointer;
     }
 
-    .services-carousel .service-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
+    /* Circular Image */
     .services-carousel .service-image-wrapper {
-      width: 100%;
-      height: 60%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin: 0 auto;
     }
 
     .services-carousel .service-image {
@@ -532,56 +554,21 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s ease;
+      border-radius: 50%;
     }
 
-    .services-carousel .service-card:hover .service-image {
-      transform: scale(1.08);
-    }
-
-    .services-carousel .service-content {
-      background-color: #fff;
-      padding: 1rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 0.25rem;
-    }
-
-    .services-carousel .service-content h3 {
-      font-size: 1.25rem;
+    /* Service name below */
+    .services-carousel h3 {
+      margin-top: 1rem;
+      font-size: 1.125rem;
       color: #7a9c8d;
-      margin-bottom: 0.25rem;
-    }
-
-    .services-carousel .service-link {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.875rem;
       font-weight: 600;
-      color: #8b84b1;
-      transition: color 0.3s ease;
     }
 
-    .services-carousel .service-link:hover {
-      color: hsl(var(--accent));
-    }
-
-    /* Tooltip */
-    .service-info {
-      position: absolute;
-      background: white;
-      border: 2px solid hsl(var(--accent));
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      font-size: 0.9rem;
-      color: hsl(var(--foreground));
+    /* No hover or effects */
+    .services-carousel .service-card:hover {
+      transform: none;
+      box-shadow: none;
     }
 
     /* Instagram */
@@ -1086,10 +1073,10 @@
         </blockquote>
       </div>
     </section>
-
     <!-- Services Section -->
     <section class="services-section">
       <div class="container">
+        <!-- Section Header -->
         <div class="section-header">
           <h2 class="section-title">Our Services</h2>
           <p class="section-subtitle">
@@ -1100,7 +1087,7 @@
 
         <!-- Circular Carousel -->
         <div class="services-carousel" id="servicesCarousel">
-          <div class="service-card" data-info="Massage Therapies">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/massage.jpeg"
@@ -1108,25 +1095,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Massage Therapies</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Massage Therapies</h3>
           </div>
 
-          <div class="service-card" data-info="Holistic Healing">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/healing.JPG"
@@ -1134,25 +1106,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Holistic Healing</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Holistic Healing</h3>
           </div>
 
-          <div class="service-card" data-info="Yoga & Meditation">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/yoga.png"
@@ -1160,25 +1117,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Yoga & Meditation</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Yoga & Meditation</h3>
           </div>
 
-          <div class="service-card" data-info="Pregnancy Care">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/pregnancy.JPG"
@@ -1186,25 +1128,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Pregnancy Care</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Pregnancy Care</h3>
           </div>
 
-          <div class="service-card" data-info="Tea & Tisanes">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/tea.png"
@@ -1212,25 +1139,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Tea & Tisanes</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Tea & Tisanes</h3>
           </div>
 
-          <div class="service-card" data-info="Art & Creativity">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/art.jpeg"
@@ -1238,25 +1150,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Art & Creativity</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Art & Creativity</h3>
           </div>
 
-          <div class="service-card" data-info="Beauty Treatments">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/facial.png"
@@ -1264,25 +1161,10 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Beauty Treatments</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Beauty Treatments</h3>
           </div>
 
-          <div class="service-card" data-info="Nepali Products">
+          <div class="service-card">
             <div class="service-image-wrapper">
               <img
                 src="images/nepprod.png"
@@ -1290,22 +1172,7 @@
                 class="service-image"
               />
             </div>
-            <div class="service-content">
-              <h3>Nepali Products</h3>
-              <div class="service-link">
-                <span>View More</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
+            <h3>Nepali Products</h3>
           </div>
         </div>
       </div>
@@ -1674,14 +1541,14 @@
       });
 
       const serviceCards = document.querySelectorAll(".service-card");
-      const totalServices = serviceCards.length;
+      const total = serviceCards.length;
       const radius = 360;
       let angle = 0;
       let rotating = true;
 
       function positionServices() {
         serviceCards.forEach((card, i) => {
-          const theta = ((2 * Math.PI) / totalServices) * i + angle;
+          const theta = ((2 * Math.PI) / total) * i + angle;
           const x = Math.cos(theta) * radius;
           const y = Math.sin(theta) * radius * 0.45;
           const scale = 1 + Math.sin(theta) * 0.25;
@@ -1694,39 +1561,20 @@
         });
       }
 
-      function animateServices() {
+      function animateCarousel() {
         if (rotating) {
-          angle += 0.002; // rotation speed
+          angle += 0.0025; // Rotation speed
           positionServices();
         }
-        requestAnimationFrame(animateServices);
+        requestAnimationFrame(animateCarousel);
       }
 
       const carousel = document.getElementById("servicesCarousel");
       carousel.addEventListener("mouseenter", () => (rotating = false));
       carousel.addEventListener("mouseleave", () => (rotating = true));
 
-      // Tooltip behavior
-      const serviceInfo = document.createElement("div");
-      serviceInfo.classList.add("service-info");
-      document.body.appendChild(serviceInfo);
-
-      serviceCards.forEach((card) => {
-        card.addEventListener("mouseenter", (e) => {
-          serviceInfo.textContent = card.getAttribute("data-info");
-          serviceInfo.style.opacity = 1;
-        });
-        card.addEventListener("mousemove", (e) => {
-          serviceInfo.style.top = e.pageY + 15 + "px";
-          serviceInfo.style.left = e.pageX + 15 + "px";
-        });
-        card.addEventListener("mouseleave", () => {
-          serviceInfo.style.opacity = 0;
-        });
-      });
-
       positionServices();
-      animateServices();
+      animateCarousel();
     </script>
   </body>
 </html>
