@@ -160,25 +160,31 @@
 
     /* Image Slider */
     .slider-wrapper {
-      max-width: 800px;
+      max-width: 660px;
       margin: 0 auto 3rem;
       position: relative;
       overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
+
     .slider {
       display: flex;
       transition: transform 0.5s ease;
     }
+
     .slide {
       min-width: 100%;
-      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f4f2;
     }
+
     .slide img {
       width: 100%;
-      display: block;
-      border-radius: 15px;
+      height: auto;
+      border-radius: 20px;
     }
 
     /* Toggle Switch */
@@ -553,7 +559,7 @@
           <span></span>
         </button>
         <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="home.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="gallery.html" class="nav-link">Gallery</a></li>

@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
+    />
+    <title>Home- Soma Wellness Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    :root {
+      --primary: 23 35% 55%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 30 25% 65%;
+      --secondary-foreground: 0 0% 100%;
+      --accent: 35 40% 60%;
+      --accent-foreground: 0 0% 100%;
+      --background: 30 20% 94%;
+      --foreground: 25 15% 25%;
+      --muted: 30 15% 90%;
+      --muted-foreground: 25 10% 50%;
+      --border: 30 15% 85%;
+      --card: 0 0% 100%;
+      --container-padding: 1rem;
+      --max-width: 1400px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: hsla(var(--background), 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem var(--container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: hsl(var(--foreground) / 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: hsl(var(--primary));
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: hsl(var(--background));
+      padding-top: 5rem;
+      z-index: 1;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      background: hsl(var(--background));
+      z-index: 0;
+    }
+
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.3),
+        transparent 70%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-badge svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #b58b61;
+    }
+
+    .hero-badge span {
+      background: linear-gradient(90deg, #b58b61 0%, #7a9c8d 50%, #8b84b1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: hsl(var(--foreground));
+    }
+
+    .hero-title-line {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title-gradient {
+      display: block;
+      color: hsl(var(--secondary));
+      animation: fade-in 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      color: hsl(var(--foreground) / 0.7);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .feature-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 2rem;
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: 1rem;
+      background: linear-gradient(
+        135deg,
+        hsla(var(--card), 0.5),
+        hsla(var(--card), 0.3)
+      );
+      backdrop-filter: blur(8px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      transition: var(--transition);
+      animation: fade-in-up 0.6s ease-out;
+    }
+
+    .feature-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    .feature-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      background: linear-gradient(
+        135deg,
+        hsla(var(--primary), 0.05),
+        transparent
+      );
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px hsla(var(--foreground), 0.1);
+      border-color: hsla(var(--primary), 0.5);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      margin-left: 100px;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .feature-icon.primary {
+      background-color: hsla(var(--primary), 0.1);
+      color: hsl(var(--primary));
+    }
+
+    .feature-icon.secondary {
+      background-color: hsla(var(--secondary), 0.1);
+      color: hsl(var(--secondary));
+    }
+
+    .feature-icon.accent {
+      background-color: hsla(var(--accent), 0.1);
+      color: hsl(var(--accent));
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: hsl(var(--foreground) / 0.6);
+      font-size: 0.875rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 3rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      position: relative;
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        hsl(var(--secondary)),
+        hsl(var(--accent))
+      );
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px hsla(var(--primary), 0.4);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 0.3;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+
+    a.btn-primary:hover,
+    a.btn-small:hover {
+      color: white !important;
+    }
+
+    .btn-primary span,
+    .btn-primary svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: hsl(var(--foreground));
+      border: 2px solid hsl(var(--border));
+    }
+
+    .btn-outline:hover {
+      border-color: hsl(var(--primary));
+      background-color: hsla(var(--primary), 0.05);
+      transform: scale(1.05);
+    }
+
+    /* Mind Body Spirit */
+    .mind-body-spirit {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 1.5rem;
+      background-color: hsla(var(--muted), 0.2);
+    }
+
+    .section-title-divider {
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .divider {
+      margin: 0 1rem;
+    }
+
+    .quote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-style: italic;
+      color: hsl(var(--foreground) / 0.7);
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      border-left: 4px solid hsla(var(--primary), 0.3);
+      line-height: 1.7;
+      text-align: center;
+    }
+    /* Services Section */
+    .services-section {
+      padding: 2rem 1.5rem;
+      background: linear-gradient(
+        to bottom,
+        hsl(var(--background)),
+        hsla(var(--muted), 0.2)
+      );
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Circular Carousel */
+    .services-carousel {
+      position: relative;
+      width: 100%;
+      height: 620px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      margin-top: 0.5rem;
+    }
+
+    /* Each service item */
+    .services-carousel .service-card {
+      position: absolute;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    /* Circular Image */
+    .services-carousel .service-image-wrapper {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin: 0 auto;
+    }
+
+    .services-carousel .service-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    /* Service name below */
+    .services-carousel h3 {
+      margin-top: 1rem;
+      font-size: 1.125rem;
+      color: #7a9c8d;
+      font-weight: 600;
+    }
+
+    /* No hover or effects */
+    .services-carousel .service-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .view-more-link {
+      margin-top: 0.3rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: hsl(var(--primary));
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .view-more-link:hover {
+      color: hsl(var(--accent));
+    }
+
+    /* Instagram */
+    .instagram-section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 1.5rem;
+      background-color: hsla(var(--muted), 0.1);
+    }
+
+    .instagram-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .instagram-header svg {
+      color: hsl(var(--primary));
+    }
+
+    .instagram-handle {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 1rem;
+    }
+
+    /*CTA*/
+
+    .soma-cta-section {
+      position: relative;
+      padding: 4rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .soma-cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .soma-cta-card {
+      position: relative;
+      z-index: 1;
+      background: transparent; /* fully transparent background */
+      border: 2px solid hsl(var(--border)); /* only outline */
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem; /* slightly bigger horizontally */
+      width: 1200px; /* wider card */
+      margin: 0 auto;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Add class when visible */
+    .soma-cta-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .soma-cta-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05); /* subtle shadow on hover */
+    }
+
+    .soma-cta-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 500;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .soma-cta-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      color: hsl(var(--foreground) / 0.7);
+      margin-bottom: 2rem;
+    }
+
+    .soma-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .soma-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soma-btn-primary {
+      background: linear-gradient(
+        to right,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 8px 18px hsla(var(--primary), 0.25);
+    }
+
+    .soma-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px hsla(var(--primary), 0.3);
+    }
+
+    .soma-btn-outline {
+      background: transparent;
+      border-color: hsl(var(--border));
+      color: hsl(var(--foreground) / 0.8);
+    }
+
+    .soma-btn-outline:hover {
+      border-color: hsl(var(--primary));
+      color: hsl(var(--primary));
+      background-color: hsla(var(--primary), 0.05);
+      transform: translateY(-2px);
+    }
+
+    .soma-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .soma-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Fade-in animations */
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer*/
+    .footer-minimal {
+      background-color: transparent;
+      border-top: 1px solid hsl(var(--border));
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-minimal-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Left: Connect Info */
+    .footer-connect {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .footer-connect h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-connect p {
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+      margin: 0;
+    }
+
+    .connect-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: hsl(var(--foreground) / 0.7);
+    }
+
+    .connect-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--foreground) / 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .connect-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    /* Map */
+    .footer-map {
+      flex: 1 1 400px;
+    }
+
+    .footer-map iframe {
+      border-radius: 1rem;
+      width: 100%;
+      height: 250px;
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 0.8s ease-out;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="SOMA" class="logo-img" />
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="aboutus.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <a href="#book" class="btn btn-primary btn-small">Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-background">
+        <canvas id="particleCanvas"></canvas>
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="hero-content fade-in-up">
+        <div class="hero-badge">
+          <svg
+            fill="#8d97a4"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
+            stroke="#8d97a4"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M27.42,10.57A1.66,1.66,0,0,0,26.17,10h0a1.66,1.66,0,0,0-1.25.56c-11.76,13.39-5,24,0,29.07a1.66,1.66,0,0,0,1.19.49h0a1.77,1.77,0,0,0,1.24-.54C32.3,34.48,38.83,23.93,27.42,10.57Z"
+              ></path>
+              <path
+                d="M15.66,28.3C13,26.79,9.37,25.92,4.56,26.24a1.27,1.27,0,0,0-1,.53h0a1.34,1.34,0,0,0-.24,1.08c3,14,13,14.75,18.77,13.94a1.35,1.35,0,0,0,.64-.3A23.14,23.14,0,0,1,15.66,28.3Z"
+              ></path>
+              <path
+                d="M36.34,28.3c2.69-1.51,6.29-2.38,11.1-2.06a1.27,1.27,0,0,1,1,.53h0a1.34,1.34,0,0,1,.24,1.08c-3,14-13,14.75-18.77,13.94a1.35,1.35,0,0,1-.64-.3A23.14,23.14,0,0,0,36.34,28.3Z"
+              ></path>
+              <path
+                d="M15.38,25c.32-4.56,1.2-6.62,1.61-7.35a22.71,22.71,0,0,0-6.43-3.46,1.28,1.28,0,0,0-1.08.09h0a1.34,1.34,0,0,0-.64.88,21.65,21.65,0,0,0-.25,8.41A22.93,22.93,0,0,1,15.38,25Z"
+              ></path>
+              <path
+                d="M43.31,15.13a1.29,1.29,0,0,0-.64-.88h0a1.28,1.28,0,0,0-1.08-.09,22.79,22.79,0,0,0-6.42,3.46c.4.73,1.29,2.79,1.6,7.35a22.93,22.93,0,0,1,6.8-1.43A21.27,21.27,0,0,0,43.31,15.13Z"
+              ></path>
+            </g>
+          </svg>
+          <span>Holistic Wellness & Sacred Healing</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-line">Transform Your</span>
+          <span class="hero-title-gradient">Mind, Body & Spirit</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Experience ancient healing practices blended with modern wellness in a
+          sacred sanctuary.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn btn-primary">
+            <span>Begin Your Journey</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="feature-pills">
+          <div class="feature-card">
+            <div class="feature-icon primary">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    opacity="0.8"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z"
+                    fill="#ad8469"
+                  ></path>
+                  <g opacity="0.5">
+                    <path
+                      d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10583 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10583 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L18.1871 6.87359C17.8942 7.16648 17.4193 7.16648 17.1264 6.87359C16.8335 6.5807 16.8335 6.10583 17.1264 5.81293L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M6.87338 17.1266C7.16627 17.4195 7.16627 17.8944 6.87338 18.1873L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L5.81272 17.1266C6.10561 16.8337 6.58048 16.8337 6.87338 17.1266Z"
+                      fill="#ad8469"
+                    ></path>
+                    <path
+                      d="M17.1266 17.1266C17.4195 16.8337 17.8944 16.8337 18.1873 17.1266L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L17.1266 18.1873C16.8337 17.8944 16.8337 17.4195 17.1266 17.1266Z"
+                      fill="#ad8469"
+                    ></path>
+                  </g>
+                  <path
+                    d="M7 11.0595C7 13.6018 9.00971 14.9566 10.4809 16.1692C11 16.5971 11.5 17 12 17C12.5 17 13 16.5971 13.5191 16.1692C14.9903 14.9566 17 13.6018 17 11.0595C17 8.51718 14.2499 6.71421 12 9.15837C9.75008 6.71421 7 8.51718 7 11.0595Z"
+                    fill="#ad8469"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <h3>Holistic Healing</h3>
+            <p>Ancient wisdom meets modern wellness</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon secondary">
+              <svg
+                fill="#b8a693"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 45.22 45.22"
+                xml:space="preserve"
+                stroke="#b8a693"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <circle cx="22.611" cy="5.024" r="3.552"></circle>
+                      <path
+                        d="M26.436,12.675c-0.399-2-2.289-3.373-4.339-3.099c-1.696,0.225-2.99,1.51-3.309,3.099c1.07-0.792,2.394-1.262,3.824-1.262 S25.364,11.884,26.436,12.675z"
+                      ></path>
+                      <path
+                        d="M35.291,29.401c-0.814-0.717-2.057-0.637-2.772,0.178l-2.8,3.18c-0.717,0.814-0.637,2.057,0.178,2.773 c0.373,0.328,0.836,0.49,1.297,0.49c0.545,0,1.087-0.227,1.476-0.668l2.798-3.181C36.186,31.36,36.106,30.118,35.291,29.401z"
+                      ></path>
+                      <path
+                        d="M32.669,10.911c-0.718-0.814-1.959-0.894-2.772-0.177c-0.814,0.717-0.895,1.959-0.178,2.773l2.8,3.181 c0.389,0.441,0.931,0.667,1.477,0.667c0.461,0,0.923-0.161,1.297-0.489c0.814-0.717,0.895-1.959,0.177-2.773L32.669,10.911z"
+                      ></path>
+                      <g>
+                        <path
+                          d="M22.629,23.517c-0.006,0-0.031,0-0.037,0c-1.251,0-2.444,0.567-3.278,1.502c-0.834,0.934-1.231,2.194-1.09,3.438 l2.019,13.048c0.138,1.229,1.144,2.244,2.368,2.244c1.226,0,2.229-1.007,2.37-2.238l2.017-13.056 c0.142-1.243-0.256-2.504-1.09-3.438C25.072,24.085,23.881,23.517,22.629,23.517z"
+                        ></path>
+                        <circle cx="22.61" cy="18.078" r="4.33"></circle>
+                      </g>
+                      <g>
+                        <path
+                          d="M41.219,17.509c-0.005,0-0.027,0-0.033,0c-1.14,0-2.226,0.517-2.984,1.367c-0.76,0.85-1.121,1.998-0.993,3.131 l1.837,11.878c0.126,1.12,1.042,2.043,2.156,2.043c1.115,0,2.03-0.917,2.157-2.036l1.836-11.887 c0.128-1.132-0.233-2.279-0.992-3.129S42.358,17.509,41.219,17.509z"
+                        ></path>
+                        <circle cx="41.202" cy="12.557" r="3.942"></circle>
+                      </g>
+                    </g>
+                    <g>
+                      <path
+                        d="M9.93,29.401c0.815-0.717,2.057-0.637,2.773,0.178l2.799,3.18c0.717,0.814,0.637,2.057-0.177,2.773 c-0.373,0.328-0.836,0.49-1.297,0.49c-0.545,0-1.087-0.227-1.476-0.668l-2.798-3.181C9.036,31.36,9.114,30.118,9.93,29.401z"
+                      ></path>
+                      <path
+                        d="M12.55,10.911c0.718-0.814,1.959-0.894,2.773-0.177c0.814,0.717,0.894,1.959,0.177,2.773l-2.799,3.181 c-0.389,0.441-0.931,0.667-1.477,0.667c-0.461,0-0.923-0.161-1.297-0.489c-0.814-0.717-0.894-1.959-0.177-2.773L12.55,10.911z"
+                      ></path>
+                      <g>
+                        <path
+                          d="M4.001,17.509c0.005,0,0.028,0,0.034,0c1.139,0,2.225,0.517,2.984,1.367c0.76,0.85,1.121,1.998,0.993,3.131L6.174,33.885 c-0.126,1.12-1.042,2.043-2.156,2.043c-1.115,0-2.03-0.917-2.157-2.036L0.025,22.005c-0.128-1.132,0.233-2.279,0.992-3.129 C1.776,18.026,2.861,17.509,4.001,17.509z"
+                        ></path>
+                        <circle cx="4.019" cy="12.557" r="3.942"></circle>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <h3>Sacred Space</h3>
+            <p>A sanctuary for transformation</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon accent">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M4 21V18.5C4 15.4624 6.46243 13 9.5 13H13.5M8 21V18M16 6.5C16 8.70914 14.2091 10.5 12 10.5C9.79086 10.5 8 8.70914 8 6.5C8 4.29086 9.79086 2.5 12 2.5C14.2091 2.5 16 4.29086 16 6.5ZM17.5 12.9998C17.0439 12.3927 16.3178 12 15.5 12C14.1193 12 13 13.1193 13 14.5C13 15.1195 13.2253 15.6864 13.5985 16.1231L17.5 21L21.4015 16.1231C21.7747 15.6864 22 15.1195 22 14.5C22 13.1193 20.8807 12 19.5 12C18.6822 12 17.9561 12.3927 17.5 12.9998Z"
+                    stroke="#bca176"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.4"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <h3>Expert Care</h3>
+            <p>Guided by experienced practitioners</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Mind Body Spirit -->
+    <section class="mind-body-spirit">
+      <div class="container">
+        <h2 class="section-title-divider">
+          Mind <span class="divider">|</span> Body
+          <span class="divider">|</span> Spirit
+        </h2>
+        <blockquote class="quote">
+          Join us at Soma Wellness Studio to experience a place where well-being
+          is not just a destination, but a way of life.
+        </blockquote>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Explore our holistic offerings designed to nurture your complete
+            well-being
+          </p>
+        </div>
+
+        <!-- Circular Carousel -->
+        <div class="services-carousel" id="servicesCarousel">
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/massage.jpeg"
+                alt="Massage Therapies"
+                class="service-image"
+              />
+            </div>
+            <h3>Massage Therapies</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/healing.JPG"
+                alt="Holistic Healing"
+                class="service-image"
+              />
+            </div>
+            <h3>Holistic Healing</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/yoga.png"
+                alt="Yoga & Meditation"
+                class="service-image"
+              />
+            </div>
+            <h3>Yoga & Meditation</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/pregnancy.JPG"
+                alt="Pregnancy Care"
+                class="service-image"
+              />
+            </div>
+            <h3>Pregnancy Care</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/tea.png"
+                alt="Tea & Tisanes"
+                class="service-image"
+              />
+            </div>
+            <h3>Tea & Tisanes</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/art.jpeg"
+                alt="Art & Creativity"
+                class="service-image"
+              />
+            </div>
+            <h3>Art & Creativity</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/facial.png"
+                alt="Beauty Treatments"
+                class="service-image"
+              />
+            </div>
+            <h3>Beauty Treatments</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img
+                src="images/nepprod.png"
+                alt="Nepali Products"
+                class="service-image"
+              />
+            </div>
+            <h3>Nepali Products</h3>
+            <a href="massage.html" class="view-more-link">View More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="instagram-section">
+      <div class="container text-center">
+        <div class="instagram-header">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <h2 class="section-title">Follow Our Journey</h2>
+        </div>
+        <!-- Instagram Feed -->
+        <div
+          style="
+            margin: 2rem auto;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+          "
+        >
+          <iframe
+            src="https://snapwidget.com/embed/1110094"
+            class="snapwidget-widget"
+            allowtransparency="true"
+            frameborder="0"
+            scrolling="no"
+            style="
+              border: none;
+              overflow: hidden;
+              width: 100%;
+              max-width: 765px;
+              height: 510px;
+              border-radius: 0.5rem;
+            "
+            title="Posts from Instagram"
+          >
+          </iframe>
+        </div>
+        <a
+          href="https://www.instagram.com/wellness.soma/"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          </svg>
+          <span>View on Instagram</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="soma-cta-section">
+      <div class="container">
+        <div class="soma-cta-card">
+          <h2 class="soma-cta-title">Ready to begin your Soma experience?</h2>
+          <p class="soma-cta-subtitle">
+            Transform your wellness journey with us today
+          </p>
+
+          <div class="soma-cta-buttons">
+            <a href="#book" class="soma-btn soma-btn-primary">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <span>Book Now</span>
+            </a>
+            <a href="tel:+9779801234567" class="soma-btn soma-btn-outline">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              <span>Call Us</span>
+            </a>
+            <a
+              href="https://wa.me/9779801234567"
+              target="_blank"
+              class="soma-btn soma-btn-outline"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                />
+              </svg>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimalist Footer with Connect -->
+    <footer class="footer-minimal">
+      <div class="container">
+        <div class="footer-minimal-content">
+          <!-- Left: Connect -->
+          <div class="footer-connect">
+            <h3>Soma Wellness Studio</h3>
+            <p>Pepsicola, New Townplanning</p>
+            <p>Opening hours: 11am - 6pm</p>
+            <div class="connect-links">
+              <span>Connect:</span>
+              <a
+                href="https://www.instagram.com/wellness.soma/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37a4 4 0 1 1-4.9-4.9 4 4 0 0 1 4.9 4.9z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:info@somawellness.com" aria-label="Email">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1808838.4620612687!2d82.93259815625!3d27.689867999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b603f95a8b9%3A0x7e278db8a4c5d6ca!2sSoma%20Wellness%20Studio!5e0!3m2!1sen!2snp!4v1760603546071!5m2!1sen!2snp"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer-credit"
+        style="
+          text-align: center;
+          margin-top: 2rem;
+          font-size: 0.85rem;
+          padding-bottom: 0;
+          color: hsl(var(--muted-foreground));
+        "
+      >
+        Developed by Karmistha
+      </div>
+    </footer>
+
+    <script>
+      // Particle Animation
+      const canvas = document.getElementById("particleCanvas");
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        const heroSection = document.querySelector(".hero");
+        canvas.width = heroSection.offsetWidth;
+        canvas.height = heroSection.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const particles = [];
+      const particleCount = 80;
+      const connectionDistance = 150;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.size = Math.random() * 2 + 1;
+          this.pulseOffset = Math.random() * Math.PI * 2;
+          this.baseAlpha = 0.3 + Math.random() * 0.3;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw(time) {
+          const pulse = Math.sin(time * 0.001 + this.pulseOffset) * 0.3 + 0.7;
+          const alpha = this.baseAlpha * pulse;
+
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(181, 139, 97, ${alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function connectParticles(time) {
+        const pulse = Math.sin(time * 0.0008) * 0.3 + 0.5;
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              const alpha = (1 - distance / connectionDistance) * 0.15 * pulse;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(181, 139, 97, ${alpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate(time) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        connectParticles(time);
+
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw(time);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate(0);
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
+      }
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Header scroll effect
+      const header = document.querySelector(".header");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 100) {
+          header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+        } else {
+          header.style.boxShadow = "none";
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cta = document.querySelector(".soma-cta-card");
+        setTimeout(() => cta.classList.add("visible"), 300);
+      });
+
+      // Intersection Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(".fade-in-up");
+        fadeElements.forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition =
+            "opacity 0.6s ease-out, transform 0.6s ease-out";
+          observer.observe(el);
+        });
+      });
+
+      const serviceCards = document.querySelectorAll(".service-card");
+      const total = serviceCards.length;
+      const radius = 360;
+      let angle = 0;
+      let rotating = true;
+
+      function positionServices() {
+        serviceCards.forEach((card, i) => {
+          const theta = ((2 * Math.PI) / total) * i + angle;
+          const x = Math.cos(theta) * radius;
+          const y = Math.sin(theta) * radius * 0.45;
+          const scale = 1 + Math.sin(theta) * 0.25;
+          const opacity = 0.6 + Math.sin(theta) * 0.4;
+          const zIndex = Math.round(Math.sin(theta) * 100);
+
+          card.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+          card.style.opacity = opacity;
+          card.style.zIndex = zIndex;
+        });
+      }
+
+      function animateCarousel() {
+        if (rotating) {
+          angle += 0.0025; // Rotation speed
+          positionServices();
+        }
+        requestAnimationFrame(animateCarousel);
+      }
+
+      const carousel = document.getElementById("servicesCarousel");
+      carousel.addEventListener("mouseenter", () => (rotating = false));
+      carousel.addEventListener("mouseleave", () => (rotating = true));
+
+      positionServices();
+      animateCarousel();
+    </script>
+  </body>
+</html>
