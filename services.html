@@ -232,21 +232,44 @@
       font-family: "Playfair Display", serif;
       font-size: 1.4rem;
       margin-bottom: 1rem;
+      color: #7a9c8d;
+      font-weight: bold;
     }
     .service-card .front p {
       color: rgba(74, 59, 47, 0.8);
     }
 
     .service-card .back {
+      position: relative;
       transform: rotateY(180deg);
-      background-color: hsl(var(--background));
       text-align: center;
+      background-color: hsl(var(--background));
     }
+
     .service-card .back img {
       width: 100%;
       height: 100%;
       border-radius: 15px;
       object-fit: cover;
+    }
+
+    .service-card .view-more-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 9999px;
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card .view-more-btn:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     /* Footer*/
@@ -320,7 +343,6 @@
       height: 250px;
     }
 
-    
     /* Animations */
     @keyframes fade-in {
       from {
@@ -345,8 +367,6 @@
     .fade-in-up {
       animation: fade-in-up 0.8s ease-out;
     }
-
-
 
     /* Buttons */
     .btn {
@@ -466,6 +486,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Therapeutic Massage" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -476,6 +499,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Yoga" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -486,6 +512,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Energy Healing" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -496,6 +525,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Aromatherapy" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -506,6 +538,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Herbal Therapy" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -516,6 +551,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Nutrition" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -526,6 +564,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Sound Therapy" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
 
@@ -536,6 +577,9 @@
           </div>
           <div class="back">
             <img src="images/msg.webp" alt="Mindfulness Coaching" />
+            <a href="massage.html" class="btn btn-primary view-more-btn"
+              >View More</a
+            >
           </div>
         </div>
       </div>
@@ -621,6 +665,18 @@
             </iframe>
           </div>
         </div>
+      </div>
+      <div
+        class="footer-credit"
+        style="
+          text-align: center;
+          margin-top: 2rem;
+          font-size: 0.85rem;
+          padding-bottom: 0;
+          color: hsl(var(--muted-foreground));
+        "
+      >
+        Developed by Karmistha
       </div>
     </footer>
   </body>

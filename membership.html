@@ -7,7 +7,7 @@
       name="description"
       content="Transform your mind, body & spirit at Soma Wellness Studio - Ancient Nepali healing traditions meet modern wellness"
     />
-    <title>Gallery- Soma Wellness Studio</title>
+    <title>Home- Soma Wellness Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,27 +50,6 @@
       color: hsl(var(--foreground));
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--container-padding);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Playfair Display", serif;
-      font-weight: 300;
-      line-height: 1.2;
     }
 
     /* Buttons */
@@ -150,6 +129,209 @@
       transform: scale(1.05);
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      padding-top: 8rem;
+    }
+    p.intro {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: rgba(74, 59, 47, 0.8);
+      font-size: 1.1rem;
+    }
+
+    /* Image Slider */
+    .slider-wrapper {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      min-width: 100%;
+      user-select: none;
+    }
+    .slide img {
+      width: 100%;
+      display: block;
+      border-radius: 15px;
+    }
+
+    /* Toggle Switch */
+    .toggle-wrapper {
+      display: inline-flex;
+      margin-bottom: 3rem;
+      background: hsl(var(--card));
+      border-radius: 9999px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .toggle-btn {
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      flex: 1;
+      text-align: center;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: hsl(var(--card));
+      color: hsl(var(--foreground));
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(
+        90deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      color: hsl(var(--primary-foreground));
+      box-shadow: 0 0 20px rgba(255, 200, 150, 0.4);
+    }
+    .toggle-btn:not(.active) {
+      color: hsl(var(--foreground));
+    }
+
+    /* Membership Cards */
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .membership-card {
+      background: hsl(var(--card));
+      border-radius: 15px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .membership-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    .membership-card.highlight {
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 15px hsl(var(--primary) / 0.6),
+          0 0 30px hsl(var(--accent) / 0.4);
+      }
+      50% {
+        box-shadow: 0 0 25px hsl(var(--primary) / 0.8),
+          0 0 40px hsl(var(--accent) / 0.6);
+      }
+      100% {
+        box-shadow: 0 0 35px hsl(var(--primary) / 1),
+          0 0 50px hsl(var(--accent) / 0.8);
+      }
+    }
+    .membership-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .membership-card p {
+      color: rgba(74, 59, 47, 0.8);
+      margin-bottom: 1rem;
+    }
+    .membership-card .price {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: hsl(var(--primary));
+    }
+    .membership-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+    .membership-card ul li::before {
+      content: "✓";
+      color: hsl(var(--primary));
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    .membership-card .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 9999px;
+      background: hsl(var(--primary));
+      background-image: linear-gradient(
+        90deg,
+        hsl(var(--primary)),
+        hsl(var(--accent))
+      );
+      color: hsl(var(--primary-foreground));
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .membership-card .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Terms & Conditions */
+    .terms {
+      max-width: 700px;
+      margin: 4rem auto 2rem;
+      font-size: 0.95rem;
+      color: rgba(74, 59, 47, 0.7);
+      line-height: 1.5;
+      text-align: left;
+      border-top: 1px solid hsl(var(--border));
+      padding-top: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    .terms.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll fade-in animation */
+    [data-fade] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    [data-fade].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     /* Header */
     .header {
       position: fixed;
@@ -322,6 +504,18 @@
       height: 250px;
     }
 
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-minimal-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-map iframe {
+        height: 200px;
+      }
+    }
+
     /* Animations */
     @keyframes fade-in {
       from {
@@ -346,148 +540,6 @@
     .fade-in-up {
       animation: fade-in-up 0.8s ease-out;
     }
-
-    .gallery-section {
-      padding: 6rem 1rem;
-      text-align: center;
-      background: linear-gradient(
-        to bottom,
-        hsl(0 0% 100%),
-        hsl(var(--background))
-      );
-      overflow: hidden;
-    }
-
-    .gallery-header {
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .gallery-header.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .feature-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: hsl(30 20% 95%);
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .feature-icon svg {
-      width: 34px;
-      height: 34px;
-      stroke: hsl(var(--accent));
-      stroke-width: 2;
-      fill: none;
-    }
-
-    .gallery-header h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.2rem;
-      font-weight: 400;
-      margin-bottom: 0.8rem;
-      color: hsl(var(--foreground));
-    }
-
-    .gallery-header p {
-      color: hsl(25 10% 40%);
-      font-size: 1rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-      background: hsl(0 0% 98%);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-
-    .gallery-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-item:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      z-index: 9999;
-    }
-
-    .lightbox.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      transform: scale(0.9);
-      transition: transform 0.4s ease;
-    }
-
-    .lightbox.active img {
-      transform: scale(1);
-    }
-
-    .lightbox::after {
-      content: "✕";
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-
-    .lightbox::after:hover {
-      opacity: 0.7;
-    }
   </style>
   <body>
     <header class="header">
@@ -501,10 +553,10 @@
           <span></span>
         </button>
         <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="aboutus.html" class="nav-link">About</a></li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li><a href="shop.html" class="nav-link">Shop</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li>
@@ -514,51 +566,117 @@
       </nav>
     </header>
 
-    <section class="gallery-section" id="gallery">
-      <div class="container">
-        <div class="gallery-header">
-          <div class="feature-icon">
-            <!-- Inline SVG Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <circle cx="12" cy="13" r="3.5" />
-              <path
-                d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"
-              />
-            </svg>
-          </div>
-          <h2>Our Gallery</h2>
-          <p>
-            A visual journey through moments of healing, connection, and
-            transformation.
-          </p>
-        </div>
+    <div class="container">
+      <h2>Our Memberships</h2>
+      <p class="intro">
+        Choose the membership plan that fits your wellness journey. Each
+        membership is designed to provide flexibility and consistent care for
+        your mind, body, and spirit.
+      </p>
 
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 1" />
+      <!-- Image slider -->
+      <div class="slider-wrapper" data-fade>
+        <div class="slider" id="slider">
+          <div class="slide">
+            <img src="images/mem1.jpeg" alt="Membership 1" />
           </div>
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 2" />
-          </div>
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 3" />
-          </div>
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 4" />
-          </div>
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 5" />
-          </div>
-          <div class="gallery-item">
-            <img src="images/facial.png" alt="Gallery Image 6" />
+          <div class="slide">
+            <img src="images/mem2.jpeg" alt="Membership 2" />
           </div>
         </div>
       </div>
-    </section>
-    <div class="lightbox" id="lightbox">
-      <img src="" alt="Expanded view" />
+
+      <!-- Toggle -->
+      <div class="toggle-wrapper">
+        <div class="toggle-btn active" data-plan="6">3 Session</div>
+        <div class="toggle-btn" data-plan="12">6/12 Session</div>
+      </div>
+
+      <!-- Membership Cards -->
+      <div class="membership-grid">
+        <div class="membership-card" data-plan="6" data-fade>
+          <h3>3 Session Membership</h3>
+          <p>
+            Perfect for getting started and experiencing our wellness therapies.
+          </p>
+          <div class="price">Price Based on Service</div>
+          <ul>
+            <li>Personalized wellness sessions</li>
+            <li>20% discount on service choosed</li>
+            <li>Expert guidance</li>
+          </ul>
+          <a href="book.html" class="btn">Sign Up</a>
+        </div>
+
+        <div class="membership-card" data-plan="12" data-fade>
+          <h3>6/12 Session Membership</h3>
+          <p>
+            Perfect for a complete wellness experience, ideal for long-term
+            growth.
+          </p>
+          <div class="price">Price Based on Service</div>
+          <ul>
+            <li>Customized experience</li>
+            <li>30% discount on service choosed</li>
+            <li>Extended consultation</li>
+          </ul>
+          <a href="book.html" class="btn">Sign Up</a>
+        </div>
+      </div>
+
+      <div class="terms" data-fade>
+        <strong>Terms & Conditions:</strong>
+        <ul>
+          <li>Memberships are valid for the number of sessions purchased.</li>
+          <li>Memberships are non-transferable and non-refundable.</li>
+          <li>
+            Sessions must be booked in advance and are subject to availability.
+          </li>
+        </ul>
+      </div>
     </div>
 
+    <script>
+      // Fade in on scroll
+      const fadeElements = document.querySelectorAll("[data-fade]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.2 }
+      );
+      fadeElements.forEach((el) => observer.observe(el));
+
+      // Toggle cards
+      const toggleBtns = document.querySelectorAll(".toggle-btn");
+      const cards = document.querySelectorAll(".membership-card");
+      toggleBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          toggleBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const plan = btn.getAttribute("data-plan");
+          cards.forEach((card) => {
+            card.classList.remove("highlight");
+            if (card.getAttribute("data-plan") === plan)
+              card.classList.add("highlight");
+          });
+        });
+      });
+      document
+        .querySelector('.membership-card[data-plan="6"]')
+        .classList.add("highlight");
+
+      // Slider functionality
+      let currentIndex = 0;
+      const slider = document.getElementById("slider");
+      const totalSlides = slider.children.length;
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }, 5000);
+    </script>
     <footer class="footer-minimal">
       <div class="container">
         <div class="footer-minimal-content">
@@ -653,42 +771,5 @@
         Developed by Karmistha
       </div>
     </footer>
-    <script>
-      // Fade-in animation
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      document
-        .querySelectorAll(".gallery-header, .gallery-item")
-        .forEach((el) => observer.observe(el));
-
-      // Lightbox functionality
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = lightbox.querySelector("img");
-
-      document.querySelectorAll(".gallery-item img").forEach((img) => {
-        img.addEventListener("click", () => {
-          lightbox.classList.add("active");
-          lightboxImg.src = img.src;
-        });
-      });
-
-      // Close lightbox on click or ESC
-      lightbox.addEventListener("click", (e) => {
-        if (e.target !== lightboxImg) lightbox.classList.remove("active");
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") lightbox.classList.remove("active");
-      });
-    </script>
   </body>
 </html>
