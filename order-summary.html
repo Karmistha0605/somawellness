@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Soma Wellness Studio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: 23 35% 55%;
+        --accent: 35 40% 60%;
+        --background: 30 20% 94%;
+        --foreground: 25 15% 25%;
+        --border: 30 15% 85%;
+        --radius: 12px;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .cart-items {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid hsl(var(--border) / 0.3);
+        padding: 12px 0;
+      }
+
+      .product-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
+      }
+
+      .product-info img {
+        width: 60px;
+        height: 60px;
+        border-radius: var(--radius);
+        object-fit: cover;
+      }
+
+      .product-name {
+        font-weight: 500;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quantity-input {
+        width: 50px;
+        padding: 6px 8px;
+        border-radius: var(--radius);
+        border: 1px solid hsl(var(--border) / 0.5);
+        text-align: center;
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+      }
+
+      .price {
+        font-weight: 600;
+        color: hsl(var(--primary));
+        min-width: 80px;
+        text-align: right;
+      }
+
+      .summary {
+        flex: 1;
+        padding: 1.5rem;
+        background: hsl(var(--background));
+        border-radius: var(--radius);
+        box-shadow: 0 6px 18px rgba(10, 10, 10, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        min-width: 250px;
+      }
+
+      .summary h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .summary-line {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+      }
+
+      .summary-total {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: hsl(var(--primary));
+      }
+
+      .btn-checkout {
+        padding: 0.75rem;
+        background: linear-gradient(
+          90deg,
+          hsl(var(--primary)),
+          hsl(var(--accent))
+        );
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .btn-checkout:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      @media (max-width: 800px) {
+        .container {
+          flex-direction: column;
+        }
+        .summary {
+          min-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cart</h1>
+      <div class="cart-items" id="cartItems">
+        <!-- JS will populate cart items here -->
+      </div>
+
+      <div class="summary">
+        <h2>Cart Totals</h2>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="subtotal">₨0</span>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span>Calculated at checkout</span>
+        </div>
+        <div class="summary-line summary-total">
+          <span>Estimated Total</span>
+          <span id="total">₨0</span>
+        </div>
+        <button class="btn-checkout" onclick="checkout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let order = JSON.parse(localStorage.getItem("order") || "[]");
+
+      const products = {
+        "Masala Chai": { price: 450, img: "images/eg.webp" },
+        "Green Mountain": { price: 650, img: "images/eg.webp" },
+        "Herbal Relax": { price: 520, img: "images/eg.webp" },
+        "Organic Oolong": { price: 980, img: "images/eg.webp" },
+        "Rooibos Calm": { price: 780, img: "images/eg.webp" },
+        "Lemongrass Tisane": { price: 560, img: "images/eg.webp" },
+        "White Nectar": { price: 430, img: "images/eg.webp" },
+        "Rare Darjeeling": { price: 1350, img: "images/eg.webp" },
+        "Essential Oil Set": { price: 950, img: "images/eg.webp" },
+        "Aroma Candle": { price: 650, img: "images/eg.webp" },
+        "Incense Sticks": { price: 420, img: "images/eg.webp" },
+        "Herbal Soap Set": { price: 2200, img: "images/eg.webp" },
+        "Tea Infuser": { price: 1850, img: "images/eg.webp" },
+        "Ceramic Tea Jar": { price: 1400, img: "images/eg.webp" },
+        "Wellness Gift Kit": { price: 2700, img: "images/eg.webp" },
+        "Tea Sachets (10)": { price: 320, img: "images/eg.webp" },
+      };
+
+      function renderCart() {
+        const cartItems = document.getElementById("cartItems");
+        cartItems.innerHTML = "";
+        const counts = {};
+        order.forEach((item) => (counts[item] = (counts[item] || 0) + 1));
+        let subtotal = 0;
+
+        for (const [name, qty] of Object.entries(counts)) {
+          const price = products[name]?.price || 0;
+          const img = products[name]?.img || "";
+          const total = price * qty;
+          subtotal += total;
+
+          const div = document.createElement("div");
+          div.classList.add("cart-item");
+          div.innerHTML = `
+      <div class="product-info">
+        <img src="${img}" alt="${name}">
+        <div class="product-name">${name}</div>
+      </div>
+      <div class="quantity-control">
+        <input type="number" min="1" value="${qty}" class="quantity-input" data-name="${name}">
+        <div class="price">₨${total}</div>
+      </div>
+    `;
+          cartItems.appendChild(div);
+        }
+
+        document.getElementById("subtotal").textContent = `₨${subtotal}`;
+        document.getElementById("total").textContent = `₨${subtotal}`;
+
+        document.querySelectorAll(".quantity-input").forEach((input) => {
+          input.addEventListener("input", (e) => {
+            const name = e.target.dataset.name;
+            const qty = parseInt(e.target.value) || 1;
+            order = order.filter((i) => i !== name);
+            for (let i = 0; i < qty; i++) order.push(name);
+            localStorage.setItem("order", JSON.stringify(order));
+            renderCart();
+          });
+        });
+      }
+
+      function checkout() {
+        alert("Thank you for your order! Proceeding to checkout...");
+        localStorage.removeItem("order");
+        window.location.href = "shop.html";
+      }
+
+      renderCart();
+    </script>
+  </body>
+</html>

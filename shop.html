@@ -142,12 +142,39 @@
       background-color: transparent;
       color: hsl(var(--foreground));
       border: 2px solid hsl(var(--border));
+      margin-top: 6px;
     }
 
     .btn-outline:hover {
       border-color: hsl(var(--primary));
       background-color: hsla(var(--primary), 0.05);
       transform: scale(1.05);
+    }
+    .cart-icon {
+      position: relative;
+      font-size: 1.7rem;
+      cursor: pointer;
+      color: hsl(var(--foreground));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: hsl(var(--primary));
+      color: white;
+      border-radius: 50%;
+      padding: 0.2rem 0.45rem;
+      font-size: 0.7rem;
+      font-weight: bold;
     }
 
     /* Header */
@@ -371,6 +398,8 @@
       padding: 0.5rem;
       border-radius: 999px;
       box-shadow: 0 6px 18px rgba(10, 10, 10, 0.06);
+
+      margin-left: 22rem;
     }
     .search-widget input {
       border: none;
@@ -560,6 +589,26 @@
     .add-to-order:hover {
       transform: translateY(-3px);
     }
+    .products-heading {
+      grid-column: 1 / -1;
+      font-size: 2rem;
+      font-weight: 700;
+      color: hsl(var(--primary));
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      margin-top: 2rem;
+    }
+
+    .products-heading::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: hsl(var(--accent));
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
 
     /* small screens tweaks */
     @media (max-width: 760px) {
@@ -603,7 +652,12 @@
 
     <main class="container" role="main">
       <div class="shop-top-bar" aria-hidden="false">
-        <div class="search-widget" role="search" aria-label="Search products">
+        <div
+          class="search-widget"
+          role="search"
+          aria-label="Search products"
+          style="margin-right: auto"
+        >
           <input
             id="searchInput"
             type="search"
@@ -611,6 +665,15 @@
             aria-label="Search products"
           />
           <button id="searchBtn" aria-label="Search">Search</button>
+        </div>
+
+        <!-- Cart icon on right -->
+
+        <div class="cart-icon" id="viewCart" title="View Cart">
+          <button class="btn btn-primary btn-small btn-outline">
+            View Cart
+          </button>
+          <span id="cartCount" class="cart-count">0</span>
         </div>
       </div>
 
@@ -631,9 +694,15 @@
           </div>
 
           <div class="filter-controls" id="filterControls">
-            <label><input type="checkbox" value="Tea" checked /> Tea</label>
+            <label><input type="checkbox" value="Teas" checked /> Teas</label>
+            <label><input type="checkbox" value="Oils" checked /> Oils</label>
+            <label><input type="checkbox" value="Seeds" checked /> Seeds</label>
             <label
-              ><input type="checkbox" value="Others" checked /> Others</label
+              ><input type="checkbox" value="Pink-Salt" checked /> Pink
+              Salt</label
+            >
+            <label
+              ><input type="checkbox" value="Tisanes" checked /> Tisanes</label
             >
           </div>
 
@@ -658,7 +727,9 @@
         <section class="products" id="productsGrid" aria-live="polite">
           <!-- 16 placeholder products -->
           <!-- Tea: 8 items -->
-          <article class="product-card" data-category="Tea" data-price="450">
+          <h2 class="products-heading">Teas</h2>
+
+          <article class="product-card" data-category="Teas" data-price="450">
             <div class="product-media">
               <img src="images/eg.webp" alt="Masala Chai" />
             </div>
@@ -676,7 +747,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="650">
+          <article class="product-card" data-category="Teas" data-price="650">
             <div class="product-media">
               <img src="images/eg.webp" alt="Green Mountain Tea" />
             </div>
@@ -694,7 +765,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="520">
+          <article class="product-card" data-category="Teas" data-price="520">
             <div class="product-media">
               <img src="images/eg.webp" alt="Herbal Relax Tea" />
             </div>
@@ -712,7 +783,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="980">
+          <article class="product-card" data-category="Teas" data-price="980">
             <div class="product-media">
               <img src="images/eg.webp" alt="Organic Oolong" />
             </div>
@@ -730,7 +801,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="780">
+          <article class="product-card" data-category="Teas" data-price="780">
             <div class="product-media">
               <img src="images/eg.webp" alt="Rooibos Calm" />
             </div>
@@ -748,7 +819,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="560">
+          <article class="product-card" data-category="Teas" data-price="560">
             <div class="product-media">
               <img src="images/eg.webp" alt="Lemongrass Tisane" />
             </div>
@@ -764,7 +835,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="430">
+          <article class="product-card" data-category="Teas" data-price="430">
             <div class="product-media">
               <img src="images/eg.webp" alt="White Nectar" />
             </div>
@@ -780,7 +851,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Tea" data-price="1350">
+          <article class="product-card" data-category="Teas" data-price="1350">
             <div class="product-media">
               <img src="images/eg.webp" alt="Rare Darjeeling" />
             </div>
@@ -796,8 +867,12 @@
             </div>
           </article>
 
-          <!-- Others: 8 items -->
-          <article class="product-card" data-category="Others" data-price="950">
+          <h2 class="products-heading">Tisanes</h2>
+          <article
+            class="product-card"
+            data-category="Tisanes"
+            data-price="950"
+          >
             <div class="product-media">
               <img src="images/eg.webp" alt="Essential Oil Set" />
             </div>
@@ -815,7 +890,48 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Others" data-price="650">
+          <article
+            class="product-card"
+            data-category="Tisanes"
+            data-price="950"
+          >
+            <div class="product-media">
+              <img src="images/eg.webp" alt="Essential Oil Set" />
+            </div>
+            <div class="product-body">
+              <div class="product-title">Essential Oil Set</div>
+              <div class="product-desc">
+                Lavender, peppermint & eucalyptus trio.
+              </div>
+              <div class="product-foot">
+                <div class="price">₨950</div>
+                <button class="add-to-order" data-name="Essential Oil Set">
+                  Add to Order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <h2 class="products-heading">Oils</h2>
+          <article class="product-card" data-category="Oils" data-price="950">
+            <div class="product-media">
+              <img src="images/eg.webp" alt="Essential Oil Set" />
+            </div>
+            <div class="product-body">
+              <div class="product-title">Essential Oil Set</div>
+              <div class="product-desc">
+                Lavender, peppermint & eucalyptus trio.
+              </div>
+              <div class="product-foot">
+                <div class="price">₨950</div>
+                <button class="add-to-order" data-name="Essential Oil Set">
+                  Add to Order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="Oils" data-price="650">
             <div class="product-media">
               <img src="images/eg.webp" alt="Aroma Candle - Sandalwood" />
             </div>
@@ -831,7 +947,12 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="Others" data-price="420">
+          <h2 class="products-heading">Pink-Salt</h2>
+          <article
+            class="product-card"
+            data-category="Pink-Salt"
+            data-price="420"
+          >
             <div class="product-media">
               <img src="images/eg.webp" alt="Incense Sticks" />
             </div>
@@ -849,11 +970,9 @@
             </div>
           </article>
 
-          <article
-            class="product-card"
-            data-category="Others"
-            data-price="2200"
-          >
+          <h2 class="products-heading">Seeds</h2>
+
+          <article class="product-card" data-category="Seeds" data-price="2200">
             <div class="product-media">
               <img src="images/eg.webp" alt="Herbal Soap Set" />
             </div>
@@ -871,11 +990,7 @@
             </div>
           </article>
 
-          <article
-            class="product-card"
-            data-category="Others"
-            data-price="1850"
-          >
+          <article class="product-card" data-category="Seeds" data-price="1850">
             <div class="product-media">
               <img src="images/eg.webp" alt="Tea Infuser" />
             </div>
@@ -893,11 +1008,7 @@
             </div>
           </article>
 
-          <article
-            class="product-card"
-            data-category="Others"
-            data-price="1400"
-          >
+          <article class="product-card" data-category="Seeds" data-price="1400">
             <div class="product-media">
               <img src="images/eg.webp" alt="Ceramic Tea Jar" />
             </div>
@@ -907,42 +1018,6 @@
               <div class="product-foot">
                 <div class="price">₨1,400</div>
                 <button class="add-to-order" data-name="Ceramic Tea Jar">
-                  Add to Order
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="Others"
-            data-price="2700"
-          >
-            <div class="product-media">
-              <img src="images/eg.webp" alt="Wellness Gift Kit" />
-            </div>
-            <div class="product-body">
-              <div class="product-title">Wellness Gift Kit</div>
-              <div class="product-desc">Perfect gift: tea + candle + oil.</div>
-              <div class="product-foot">
-                <div class="price">₨2,700</div>
-                <button class="add-to-order" data-name="Wellness Gift Kit">
-                  Add to Order
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="Others" data-price="320">
-            <div class="product-media">
-              <img src="images/eg.webp" alt="Tea Sachets" />
-            </div>
-            <div class="product-body">
-              <div class="product-title">Tea Sachets (10)</div>
-              <div class="product-desc">Convenient single-serve sachets.</div>
-              <div class="product-foot">
-                <div class="price">₨320</div>
-                <button class="add-to-order" data-name="Tea Sachets (10)">
                   Add to Order
                 </button>
               </div>
@@ -1057,12 +1132,12 @@
         '.filter-controls input[type="checkbox"]'
       );
 
-      // Apply combined filter + search visibility (used after sorting too)
       function applyFiltersAndSearch() {
         const query = searchInput.value.trim().toLowerCase();
         const activeCats = Array.from(filterControls)
           .filter((c) => c.checked)
           .map((c) => c.value);
+
         document.querySelectorAll(".product-card").forEach((card) => {
           const title = card
             .querySelector(".product-title")
@@ -1070,6 +1145,17 @@
           const matchesQuery = title.includes(query);
           const inCategory = activeCats.includes(card.dataset.category);
           card.style.display = matchesQuery && inCategory ? "flex" : "none";
+        });
+
+        document.querySelectorAll(".products-heading").forEach((heading) => {
+          const category = heading.textContent.trim().replace(/\s+/g, "-");
+          const visibleCards = Array.from(
+            document.querySelectorAll(
+              `.product-card[data-category="${category}"]`
+            )
+          ).filter((card) => card.style.display !== "none");
+
+          heading.style.display = visibleCards.length > 0 ? "block" : "none";
         });
       }
 
@@ -1108,27 +1194,36 @@
       }
       sortSelect.addEventListener("change", sortProducts);
 
-      // Add-to-order handler (simple localStorage array; then redirect)
-      grid.addEventListener("click", (e) => {
-        const btn = e.target.closest(".add-to-order");
-        if (!btn) return;
-        const name =
-          btn.dataset.name ||
-          btn.closest(".product-card")?.querySelector(".product-title")
-            ?.textContent ||
-          "Item";
-        let order = JSON.parse(localStorage.getItem("order") || "[]");
-        order.push(name);
-        localStorage.setItem("order", JSON.stringify(order));
-        // small toastish feedback (alert kept for simplicity)
-        alert(`${name} added to your order!`);
-        // redirect to order summary page
-        window.location.href = "order-summary.html";
-      });
-
       // On load: ensure products are in default (unsorted) order and filters/search applied
       document.addEventListener("DOMContentLoaded", () => {
         applyFiltersAndSearch();
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cartCountEl = document.getElementById("cartCount");
+        const addButtons = document.querySelectorAll(".add-to-order");
+        const viewCart = document.getElementById("viewCart");
+
+        // Load existing count from localStorage
+        let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+        cartCountEl.textContent = cartCount;
+
+        // When Add to Order clicked
+        addButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            cartCount++;
+            cartCountEl.textContent = cartCount;
+            localStorage.setItem("cartCount", cartCount);
+
+            btn.textContent = "Added!";
+            setTimeout(() => (btn.textContent = "Add to Order"), 1000);
+          });
+        });
+
+        // Redirect to cart page
+        viewCart.addEventListener("click", () => {
+          window.location.href = "order-summary.html"; // change if needed
+        });
       });
     </script>
   </body>
